@@ -29,7 +29,7 @@ class ViewController: NSViewController {
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let window = self.view.window {
-            window.level = Int(CGWindowLevelForKey(CGWindowLevelKey.floatingWindow))
+            window.level = Int(CGWindowLevelForKey(CGWindowLevelKey.overlayWindow))
         }
     }
     
