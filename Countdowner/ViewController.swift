@@ -48,10 +48,10 @@ class ViewController: NSViewController {
             let minutes = counter / 60
             let seconds = counter % 60
             
-            if(minutes < 10 && minutes > 5) {
+            if 5 ... 10 ~= minutes {
                 appDelegate.setWindow(widthSize: 300, heightSize: 200, x: 50, y: 50)
                 self.view.layer?.backgroundColor = NSColor(red:1.00, green:0.92, blue:0.23, alpha:1.0).cgColor
-            } else if (minutes < 5) {
+            } else if 0 ... 5 ~= minutes {
                 appDelegate.setWindow(widthSize: 400, heightSize: 300, x: 75, y: 75)
                 self.view.layer?.backgroundColor = NSColor(red:0.96, green:0.26, blue:0.21, alpha:1.0).cgColor
             }
