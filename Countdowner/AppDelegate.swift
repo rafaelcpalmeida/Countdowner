@@ -14,21 +14,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        if let window = NSApplication.shared().windows.first {
-            let widthSize = 200
-            let heightSize = 100
-            
-            let windowOriginPoint = CGPoint(x: (NSScreen.main()?.frame.width)! - CGFloat((widthSize + 25)), y: 25)
-            let windowSize = CGSize(width: widthSize, height: heightSize)
-            
-            window.setFrame(NSRect(origin: windowOriginPoint, size: windowSize), display: true)
-        }
+        setWindow(widthSize: 200, heightSize: 100, x: 25, y: 25)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-
+    func setWindow(widthSize: Int, heightSize: Int, x: Int, y: Int) {
+        if let window = NSApplication.shared().windows.first {
+            let windowOriginPoint = CGPoint(x: (NSScreen.main()?.frame.width)! - CGFloat((widthSize + x)), y: CGFloat(y))
+            let windowSize = CGSize(width: widthSize, height: heightSize)
+            
+            window.setFrame(NSRect(origin: windowOriginPoint, size: windowSize), display: true)
+        }
+    }
 }
 
