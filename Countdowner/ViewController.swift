@@ -24,7 +24,7 @@ class ViewController: NSViewController {
             self.addObserver(self, forKeyPath: "view.window", options: [.new, .initial], context: nil)
         }
         
-        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -40,11 +40,11 @@ class ViewController: NSViewController {
     }
     
     func update() {
-        if(counter > 0) {
-            let minutes = String(counter / 60)
-            let seconds = String(counter % 60)
+        if(counter >= 0) {
+            let minutes = String(format: "%02d", counter / 60)
+            let seconds = String(format: "%02d", counter % 60)
             
-            self.countDownLabel.stringValue = String(describing: minutes + ":" + seconds)
+            self.countDownLabel.stringValue = String(describing: "\(minutes):\(seconds)")
             
             counter -= 1
         }

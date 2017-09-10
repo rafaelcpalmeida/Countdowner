@@ -72,7 +72,6 @@
 		26910DCE1F60B30700A82AF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				26910DBD1F60B12100A82AF2 /* AppDelegate.swift */,
 				26910DBF1F60B12100A82AF2 /* ViewController.swift */,
 			);
 			name = Controller;
@@ -81,6 +80,7 @@
 		26910DCF1F60B31300A82AF2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26910DBD1F60B12100A82AF2 /* AppDelegate.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -319,6 +319,7 @@
 				26910DCB1F60B12100A82AF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
