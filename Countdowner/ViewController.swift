@@ -15,6 +15,8 @@ class ViewController: NSViewController {
     
     var addedObserver: Bool = false
     var counter: Int = 1800
+    var alert: Double = 0
+    var danger: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,9 @@ class ViewController: NSViewController {
         self.view.layer?.backgroundColor = NSColor.green
         
         _ = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        
+        self.alert = Double(counter) * 0.33
+        self.danger = Double(counter) * 0.17
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -48,10 +53,10 @@ class ViewController: NSViewController {
             let minutes = counter / 60
             let seconds = counter % 60
             
-            if 5 ... 10 ~= minutes {
+            if danger ... alert ~= Double(counter) {
                 appDelegate.setWindow(widthSize: 300, heightSize: 200, x: 50, y: 50)
                 self.view.layer?.backgroundColor = NSColor.yellow
-            } else if 0 ... 5 ~= minutes {
+            } else if 0 ... danger ~= Double(counter) {
                 appDelegate.setWindow(widthSize: 400, heightSize: 300, x: 75, y: 75)
                 self.view.layer?.backgroundColor = NSColor.red
             }
