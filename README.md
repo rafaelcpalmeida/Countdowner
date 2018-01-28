@@ -1,4 +1,23 @@
 # Countdowner
+![Countdowner logo](https://raw.githubusercontent.com/rafaelcpalmeida/Countdowner/master/img/countdownerLogo.jpg)
+
+Countdowner is a simple tool that I built to help to keep a track on time. It shows a countdown watch and its purpose is to help someone who's presenting something to an audience to not go along their available time slot.
+
+# How it works
+From out of the box Countdowner is configured to 30 minutes. If you wish to change this time just press the white cog visible on the rectangle and insert a new time, in seconds.
+
+In the images below you can see the workflow for Countdowner:
+### Step 1
+![Countdowner logo](https://raw.githubusercontent.com/rafaelcpalmeida/Countdowner/master/img/step1.jpg)
+
+### Step 2
+![Countdowner logo](https://raw.githubusercontent.com/rafaelcpalmeida/Countdowner/master/img/step2.jpg)
+
+### Step 3
+![Countdowner logo](https://raw.githubusercontent.com/rafaelcpalmeida/Countdowner/master/img/step3.jpg)
+
+# Known bugs
+None at the moment.
 
 # Thanks to
 - [P.J. Onori] and [Maxim Popov] for the beautiful icons
