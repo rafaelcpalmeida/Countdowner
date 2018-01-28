@@ -10,16 +10,25 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var countDownLabel: NSTextField!
+    @IBOutlet weak var settingsButton: NSButton!
     
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    var preferences = Preferences()
     
     var addedObserver: Bool = false
-    var counter: Int = 1800
+    var counter: Int = 0
+    var countdownTimer: Timer? = nil
+    var countdowner: Countdowner? = nil
+    var runningTimer: Bool = false
     
-    let countdowner = Countdowner(counter: 1800)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setDefaultCounterValue()
+        self.countdowner = Countdowner(counter: counter)
+        self.setTime()
+        self.view.layer?.backgroundColor = NSColor.green
         
         if let window = self.view.window {
             window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(CGWindowLevelKey.floatingWindow)))
@@ -27,12 +36,6 @@ class ViewController: NSViewController {
             addedObserver = true
             self.addObserver(self, forKeyPath: "view.window", options: [.new, .initial], context: nil)
         }
-        
-        self.view.layer?.backgroundColor = NSColor.green
-        
-        self.setTime()
-        
-        //_ = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -47,26 +50,35 @@ class ViewController: NSViewController {
         }
     }
     
+    override func mouseDown(with theEvent: NSEvent) {
+        handleTimer()
+    }
+    
+    override func rightMouseDown(with theEvent: NSEvent) {
+        handleTimer()
+    }
+    
     @IBAction func settingsButton(_ sender: NSButton) {
-        print("Carreguei no botão")
         showInputDialog()
     }
     
     func setTime() {
-        let countdownerDetails = self.countdowner.secondsToTime(seconds: counter)
+        let countdownerDetails = self.countdowner!.secondsToTime(seconds: counter)
         
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
     
     @objc func update() {
         if counter >= 0 {
-            let countdownerDetails = self.countdowner.update(counter: counter)
+            let countdownerDetails = self.countdowner!.update(counter: counter)
             
-            self.view.layer?.backgroundColor = countdownerDetails.color
-            appDelegate.setWindow(widthSize: countdownerDetails.window.width, heightSize: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y)
-            self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", countdownerDetails.minutes)):\(String(format: "%02d", countdownerDetails.seconds))")
+            self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
             
             counter -= 1
+        } else {
+            self.pauseTimer()
+            self.runningTimer = false
+            self.setDefaultCounterValue()
         }
     }
     
@@ -85,12 +97,48 @@ class ViewController: NSViewController {
         
         if alert.runModal() == .alertFirstButtonReturn {
             if let seconds = Int(secondsField.stringValue) {
-                if Int(seconds) > 0 {
-                    self.counter = Int(seconds)
+                if seconds > 0 {
+                    preferences.counterTime = Double(seconds)
+                    
+                    self.counter = seconds
                     self.setTime()
                 }
             }
         }
+    }
+    
+    func handleTimer() {
+        if !self.runningTimer {
+            startTimer()
+            self.runningTimer = true
+        } else {
+            pauseTimer()
+            self.runningTimer = false
+        }
+    }
+    
+    func startTimer() {
+        self.countdownTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+    }
+    
+    func pauseTimer() {
+        self.countdownTimer?.invalidate()
+    }
+    
+    func resetTimer() {
+        let countdownerDetails = self.countdowner!.defaultState(counter: counter)
+        
+        self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
+    }
+    
+    func setDefaultCounterValue() {
+        self.counter = Int(preferences.counterTime)
+    }
+    
+    func updateWindow(color: CGColor, width: Int, height: Int, x: Int, y: Int, minutes: Int, seconds: Int) {
+        self.view.layer?.backgroundColor = color
+        appDelegate.setWindow(widthSize: width, heightSize: height, x: x, y: y)
+        self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
 }
 

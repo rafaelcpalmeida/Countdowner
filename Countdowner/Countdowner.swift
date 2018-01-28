@@ -13,6 +13,8 @@ class Countdowner {
     var counter: Int = 0
     var alert: Double = 0
     var danger: Double = 0
+    var color: CGColor? = nil
+    var window: WindowSettings? = nil
     
     init(counter: Int) {
         self.counter = counter
@@ -23,8 +25,6 @@ class Countdowner {
     func update(counter: Int) -> (window: WindowSettings, color: CGColor, minutes: Int, seconds: Int) {
         let minutes = counter / 60
         let seconds = counter % 60
-        var color: CGColor? = nil
-        var window: WindowSettings? = nil
         
         switch Double(counter) {
         case danger ... alert:
@@ -34,8 +34,7 @@ class Countdowner {
             color = NSColor.red
             window = WindowSettings(width: 400, height: 300, x: 75, y: 75)
         default:
-            color = NSColor.green
-            window = WindowSettings(width: 200, height: 100, x: 25, y: 25)
+            return self.defaultState(counter: counter)
         }
         
         return (window: window!, color: color!, minutes: minutes, seconds: seconds)
@@ -44,19 +43,15 @@ class Countdowner {
     func secondsToTime(seconds: Int) -> (timeInMinutes: Int, timeInSeconds: Int) {
         return (timeInMinutes: seconds / 60, timeInSeconds: seconds % 60)
     }
-}
-
-struct WindowSettings {
-    var width: Int = 0
-    var height: Int = 0
-    var x: Int = 0
-    var y: Int = 0
     
-    init(width: Int, height: Int, x: Int, y: Int) {
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+    func defaultState(counter: Int) -> (window: WindowSettings, color: CGColor, minutes: Int, seconds: Int) {
+        let minutes = counter / 60
+        let seconds = counter % 60
+        
+        color = NSColor.green
+        window = WindowSettings(width: 200, height: 100, x: 25, y: 25)
+        
+        return (window: window!, color: color!, minutes: minutes, seconds: seconds)
     }
 }
 

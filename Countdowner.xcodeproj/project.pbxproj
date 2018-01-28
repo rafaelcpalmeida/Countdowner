@@ -12,6 +12,8 @@
 		26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC11F60B12100A82AF2 /* Assets.xcassets */; };
 		26910DC51F60B12100A82AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC31F60B12100A82AF2 /* Main.storyboard */; };
 		26FF9914201E085700E405A1 /* Countdowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9913201E085700E405A1 /* Countdowner.swift */; };
+		26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
+		26FF9918201E7D1700E405A1 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9917201E7D1700E405A1 /* WindowSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		26910DC41F60B12100A82AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26910DC61F60B12100A82AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26FF9913201E085700E405A1 /* Countdowner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdowner.swift; sourceTree = "<group>"; };
+		26FF9915201E7D0600E405A1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		26FF9917201E7D1700E405A1 /* WindowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 			children = (
 				26910DBD1F60B12100A82AF2 /* AppDelegate.swift */,
 				26FF9913201E085700E405A1 /* Countdowner.swift */,
+				26FF9915201E7D0600E405A1 /* Preferences.swift */,
+				26FF9917201E7D1700E405A1 /* WindowSettings.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -97,6 +103,7 @@
 			buildPhases = (
 				26910DB61F60B12100A82AF2 /* Sources */,
 				26910DB71F60B12100A82AF2 /* Frameworks */,
+				26FF9919201E814700E405A1 /* ShellScript */,
 				26910DB81F60B12100A82AF2 /* Resources */,
 			);
 			buildRules = (
@@ -156,13 +163,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26FF9919201E814700E405A1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		26910DB61F60B12100A82AF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				26910DC01F60B12100A82AF2 /* ViewController.swift in Sources */,
+				26FF9918201E7D1700E405A1 /* WindowSettings.swift in Sources */,
 				26910DBE1F60B12100A82AF2 /* AppDelegate.swift in Sources */,
+				26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */,
 				26FF9914201E085700E405A1 /* Countdowner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
