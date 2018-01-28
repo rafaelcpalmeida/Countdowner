@@ -40,6 +40,10 @@ class Countdowner {
         
         return (window: window!, color: color!, minutes: minutes, seconds: seconds)
     }
+    
+    func secondsToTime(seconds: Int) -> (timeInMinutes: Int, timeInSeconds: Int) {
+        return (timeInMinutes: seconds / 60, timeInSeconds: seconds % 60)
+    }
 }
 
 struct WindowSettings {
