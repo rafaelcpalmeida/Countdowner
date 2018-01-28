@@ -22,8 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func setWindow(widthSize: Int, heightSize: Int, x: Int, y: Int) {
-        if let window = NSApplication.shared().windows.first {
-            let windowOriginPoint = CGPoint(x: (NSScreen.main()?.frame.width)! - CGFloat((widthSize + x)), y: CGFloat(y))
+        if let window = NSApplication.shared.windows.first {
+            let windowOriginPoint = CGPoint(x: (NSScreen.main?.frame.width)! - CGFloat((widthSize + x)), y: CGFloat(y))
             let windowSize = CGSize(width: widthSize, height: heightSize)
             
             window.setFrame(NSRect(origin: windowOriginPoint, size: windowSize), display: true)

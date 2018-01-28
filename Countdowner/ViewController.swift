@@ -11,7 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
     @IBOutlet weak var countDownLabel: NSTextField!
     
-    let appDelegate = NSApplication.shared().delegate as! AppDelegate
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
     
     var addedObserver: Bool = false
     var counter: Int = 1800
@@ -22,7 +22,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         if let window = self.view.window {
-            window.level = Int(CGWindowLevelForKey(CGWindowLevelKey.floatingWindow))
+            window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(CGWindowLevelKey.floatingWindow)))
         } else {
             addedObserver = true
             self.addObserver(self, forKeyPath: "view.window", options: [.new, .initial], context: nil)
@@ -38,7 +38,7 @@ class ViewController: NSViewController {
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let window = self.view.window {
-            window.level = Int(CGWindowLevelForKey(CGWindowLevelKey.overlayWindow))
+            window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(CGWindowLevelKey.overlayWindow)))
         }
     }
     
@@ -48,7 +48,7 @@ class ViewController: NSViewController {
         }
     }
     
-    func update() {
+    @objc func update() {
         if(counter >= 0) {
             let minutes = counter / 60
             let seconds = counter % 60
