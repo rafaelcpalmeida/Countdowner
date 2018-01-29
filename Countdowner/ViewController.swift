@@ -74,7 +74,7 @@ class ViewController: NSViewController {
         if alert.runModal() == .alertFirstButtonReturn {
             if let seconds = Int(secondsField.stringValue) {
                 if seconds > 0 {
-                    preferences.counterTime = Double(seconds)
+                    self.preferences.counterTime = Double(seconds)
                     self.countdowner!.setCountdownValue(counter: seconds)
                     
                     self.counter = seconds
