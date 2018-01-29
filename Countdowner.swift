@@ -7,13 +7,22 @@
 //
 
 import Foundation
-import Cocoa
+
+#if os(iOS) || os(watchOS) || os(tvOS)
+    import UIKit
+#elseif os(OSX)
+    import Cocoa
+#endif
 
 class Countdowner {
     var counter: Int = 0
     var alert: Double = 0
     var danger: Double = 0
-    var color: CGColor? = nil
+    #if os(iOS) || os(watchOS) || os(tvOS)
+        var color: CGColor? = nil
+    #elseif os(OSX)
+        var color: CGColor? = nil
+    #endif
     var window: WindowSettings? = nil
     
     init(counter: Int) {
@@ -28,10 +37,10 @@ class Countdowner {
         
         switch Double(counter) {
         case self.danger ... self.alert:
-            color = NSColor.yellow
+            color = CGColor.yellow
             window = WindowSettings(width: 300, height: 200, x: 50, y: 50)
         case 0 ... self.danger:
-            color = NSColor.red
+            color = CGColor.red
             window = WindowSettings(width: 400, height: 300, x: 75, y: 75)
         default:
             return self.defaultState(counter: counter)
@@ -48,15 +57,9 @@ class Countdowner {
         let minutes = counter / 60
         let seconds = counter % 60
         
-        color = NSColor.green
+        color = CGColor.green
         window = WindowSettings(width: 200, height: 100, x: 25, y: 25)
         
         return (window: window!, color: color!, minutes: minutes, seconds: seconds)
     }
-}
-
-extension NSColor {
-    static var green = NSColor(red:0.30, green:0.69, blue:0.31, alpha:1.0).cgColor
-    static var yellow = NSColor(red:1.00, green:0.92, blue:0.23, alpha:1.0).cgColor
-    static var red = NSColor(red:0.96, green:0.26, blue:0.21, alpha:1.0).cgColor
 }

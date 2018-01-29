@@ -28,7 +28,7 @@ class ViewController: NSViewController {
         self.setDefaultCounterValue()
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
-        self.view.layer?.backgroundColor = NSColor.green
+        self.view.layer?.backgroundColor = CGColor.green
         
         if let window = self.view.window {
             window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(CGWindowLevelKey.floatingWindow)))
