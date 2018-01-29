@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var countdowner: Countdowner? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.countdowner = Countdowner(counter: 60)
+        
+        self.view.layer.backgroundColor = CGColor.green
     }
 
     override func didReceiveMemoryWarning() {
