@@ -27,10 +27,10 @@ class Countdowner {
         let seconds = counter % 60
         
         switch Double(counter) {
-        case danger ... alert:
+        case self.danger ... self.alert:
             color = NSColor.yellow
             window = WindowSettings(width: 300, height: 200, x: 50, y: 50)
-        case 0 ... danger:
+        case 0 ... self.danger:
             color = NSColor.red
             window = WindowSettings(width: 400, height: 300, x: 75, y: 75)
         default:
