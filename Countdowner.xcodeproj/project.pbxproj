@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		26784B58201F5828005B7562 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9917201E7D1700E405A1 /* WindowSettings.swift */; };
-		26784B5A201F585C005B7562 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B59201F585C005B7562 /* CGColor.swift */; };
 		26784B5D201F59E6005B7562 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
 		26910DBE1F60B12100A82AF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910DBD1F60B12100A82AF2 /* AppDelegate.swift */; };
 		26910DC01F60B12100A82AF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910DBF1F60B12100A82AF2 /* ViewController.swift */; };
 		26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC11F60B12100A82AF2 /* Assets.xcassets */; };
 		26910DC51F60B12100A82AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC31F60B12100A82AF2 /* Main.storyboard */; };
+		26C94245201FCBE3006055BE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
+		26C94246201FCC10006055BE /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
+		26C94248201FCD4C006055BE /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */; };
 		26FF9914201E085700E405A1 /* Countdowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9913201E085700E405A1 /* Countdowner.swift */; };
 		26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
 		26FF9918201E7D1700E405A1 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9917201E7D1700E405A1 /* WindowSettings.swift */; };
@@ -26,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		26784B59201F585C005B7562 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		26784B5C201F59E6005B7562 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		26910DBA1F60B12100A82AF2 /* Countdowner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdowner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26910DBD1F60B12100A82AF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +35,7 @@
 		26910DC11F60B12100A82AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26910DC41F60B12100A82AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26910DC61F60B12100A82AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyIntegerValueFormatter.swift; sourceTree = "<group>"; };
 		26FF9913201E085700E405A1 /* Countdowner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdowner.swift; sourceTree = "<group>"; };
 		26FF9915201E7D0600E405A1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		26FF9917201E7D1700E405A1 /* WindowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSettings.swift; sourceTree = "<group>"; };
@@ -68,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				26FF9913201E085700E405A1 /* Countdowner.swift */,
+				26FF9915201E7D0600E405A1 /* Preferences.swift */,
+				26784B5C201F59E6005B7562 /* CGColor.swift */,
 				26910DBC1F60B12100A82AF2 /* Countdowner */,
 				26FF991F201F421100E405A1 /* Countdowner iOS */,
 				26910DBB1F60B12100A82AF2 /* Products */,
@@ -115,9 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				26910DBD1F60B12100A82AF2 /* AppDelegate.swift */,
-				26FF9915201E7D0600E405A1 /* Preferences.swift */,
+				26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */,
 				26FF9917201E7D1700E405A1 /* WindowSettings.swift */,
-				26784B59201F585C005B7562 /* CGColor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,7 +140,6 @@
 		26FF9930201F435100E405A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				26784B5C201F59E6005B7562 /* CGColor.swift */,
 				26FF9920201F421100E405A1 /* AppDelegate.swift */,
 			);
 			path = Model;
@@ -299,9 +301,10 @@
 			files = (
 				26910DC01F60B12100A82AF2 /* ViewController.swift in Sources */,
 				26FF9918201E7D1700E405A1 /* WindowSettings.swift in Sources */,
+				26C94248201FCD4C006055BE /* OnlyIntegerValueFormatter.swift in Sources */,
 				26910DBE1F60B12100A82AF2 /* AppDelegate.swift in Sources */,
 				26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */,
-				26784B5A201F585C005B7562 /* CGColor.swift in Sources */,
+				26C94246201FCC10006055BE /* CGColor.swift in Sources */,
 				26FF9914201E085700E405A1 /* Countdowner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +315,7 @@
 			files = (
 				26784B58201F5828005B7562 /* WindowSettings.swift in Sources */,
 				26FF9923201F421100E405A1 /* ViewController.swift in Sources */,
+				26C94245201FCBE3006055BE /* Preferences.swift in Sources */,
 				26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */,
 				26FF9933201F556C00E405A1 /* Countdowner.swift in Sources */,
 				26784B5D201F59E6005B7562 /* CGColor.swift in Sources */,
