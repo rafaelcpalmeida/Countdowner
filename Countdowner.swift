@@ -18,17 +18,11 @@ class Countdowner {
     var counter: Int = 0
     var alert: Double = 0
     var danger: Double = 0
-    #if os(iOS) || os(watchOS) || os(tvOS)
-        var color: CGColor? = nil
-    #elseif os(OSX)
-        var color: CGColor? = nil
-    #endif
+    var color: CGColor? = nil
     var window: WindowSettings? = nil
     
     init(counter: Int) {
-        self.counter = counter
-        self.alert = Double(counter) * 0.33
-        self.danger = Double(counter) * 0.17
+        self.setCountdownValue(counter: counter)
     }
     
     func update(counter: Int) -> (window: WindowSettings, color: CGColor, minutes: Int, seconds: Int) {
@@ -61,5 +55,11 @@ class Countdowner {
         window = WindowSettings(width: 200, height: 100, x: 25, y: 25)
         
         return (window: window!, color: color!, minutes: minutes, seconds: seconds)
+    }
+    
+    func setCountdownValue(counter: Int) {
+        self.counter = counter
+        self.alert = Double(counter) * 0.33
+        self.danger = Double(counter) * 0.17
     }
 }

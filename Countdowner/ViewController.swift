@@ -99,6 +99,7 @@ class ViewController: NSViewController {
             if let seconds = Int(secondsField.stringValue) {
                 if seconds > 0 {
                     preferences.counterTime = Double(seconds)
+                    self.countdowner!.setCountdownValue(counter: seconds)
                     
                     self.counter = seconds
                     self.setTime()
@@ -118,7 +119,7 @@ class ViewController: NSViewController {
     }
     
     func startTimer() {
-        self.countdownTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        self.countdownTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {
