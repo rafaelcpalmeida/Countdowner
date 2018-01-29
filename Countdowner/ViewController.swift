@@ -105,7 +105,7 @@ class ViewController: NSViewController {
     }
     
     func startTimer() {
-        self.countdownTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {
