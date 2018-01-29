@@ -14,6 +14,11 @@
 		26FF9914201E085700E405A1 /* Countdowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9913201E085700E405A1 /* Countdowner.swift */; };
 		26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
 		26FF9918201E7D1700E405A1 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9917201E7D1700E405A1 /* WindowSettings.swift */; };
+		26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9920201F421100E405A1 /* AppDelegate.swift */; };
+		26FF9923201F421100E405A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9922201F421100E405A1 /* ViewController.swift */; };
+		26FF9926201F421100E405A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26FF9924201F421100E405A1 /* Main.storyboard */; };
+		26FF9928201F421200E405A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26FF9927201F421200E405A1 /* Assets.xcassets */; };
+		26FF992B201F421200E405A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26FF9929201F421200E405A1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +31,24 @@
 		26FF9913201E085700E405A1 /* Countdowner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdowner.swift; sourceTree = "<group>"; };
 		26FF9915201E7D0600E405A1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		26FF9917201E7D1700E405A1 /* WindowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSettings.swift; sourceTree = "<group>"; };
+		26FF991E201F421100E405A1 /* Countdowner iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Countdowner iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26FF9920201F421100E405A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		26FF9922201F421100E405A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26FF9925201F421100E405A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		26FF9927201F421200E405A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26FF992A201F421200E405A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26FF992C201F421200E405A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		26910DB71F60B12100A82AF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26FF991B201F421100E405A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				26910DBC1F60B12100A82AF2 /* Countdowner */,
+				26FF991F201F421100E405A1 /* Countdowner iOS */,
 				26910DBB1F60B12100A82AF2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				26910DBA1F60B12100A82AF2 /* Countdowner.app */,
+				26FF991E201F421100E405A1 /* Countdowner iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +115,43 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		26FF991F201F421100E405A1 /* Countdowner iOS */ = {
+			isa = PBXGroup;
+			children = (
+				26FF9930201F435100E405A1 /* Model */,
+				26FF9932201F436300E405A1 /* View */,
+				26FF9931201F435900E405A1 /* Controller */,
+				26FF9927201F421200E405A1 /* Assets.xcassets */,
+				26FF992C201F421200E405A1 /* Info.plist */,
+			);
+			path = "Countdowner iOS";
+			sourceTree = "<group>";
+		};
+		26FF9930201F435100E405A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26FF9920201F421100E405A1 /* AppDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26FF9931201F435900E405A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				26FF9922201F421100E405A1 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		26FF9932201F436300E405A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26FF9924201F421100E405A1 /* Main.storyboard */,
+				26FF9929201F421200E405A1 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,13 +173,30 @@
 			productReference = 26910DBA1F60B12100A82AF2 /* Countdowner.app */;
 			productType = "com.apple.product-type.application";
 		};
+		26FF991D201F421100E405A1 /* Countdowner iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26FF992D201F421200E405A1 /* Build configuration list for PBXNativeTarget "Countdowner iOS" */;
+			buildPhases = (
+				26FF991A201F421100E405A1 /* Sources */,
+				26FF991B201F421100E405A1 /* Frameworks */,
+				26FF991C201F421100E405A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Countdowner iOS";
+			productName = "Countdowner iOS";
+			productReference = 26FF991E201F421100E405A1 /* Countdowner iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		26910DB21F60B12100A82AF2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Rafael Almeida";
 				TargetAttributes = {
@@ -129,6 +204,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 2C25YQ4V5V;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					26FF991D201F421100E405A1 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 2C25YQ4V5V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -147,6 +227,7 @@
 			projectRoot = "";
 			targets = (
 				26910DB91F60B12100A82AF2 /* Countdowner */,
+				26FF991D201F421100E405A1 /* Countdowner iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -158,6 +239,16 @@
 			files = (
 				26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */,
 				26910DC51F60B12100A82AF2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26FF991C201F421100E405A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26FF992B201F421200E405A1 /* LaunchScreen.storyboard in Resources */,
+				26FF9928201F421200E405A1 /* Assets.xcassets in Resources */,
+				26FF9926201F421100E405A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +283,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26FF991A201F421100E405A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26FF9923201F421100E405A1 /* ViewController.swift in Sources */,
+				26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -201,6 +301,22 @@
 				26910DC41F60B12100A82AF2 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		26FF9924201F421100E405A1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26FF9925201F421100E405A1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		26FF9929201F421200E405A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26FF992A201F421200E405A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -253,7 +369,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -303,7 +420,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -346,6 +464,49 @@
 			};
 			name = Release;
 		};
+		26FF992E201F421200E405A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2C25YQ4V5V;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Countdowner iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "pt.rafaelalmeida.Countdowner-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26FF992F201F421200E405A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2C25YQ4V5V;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Countdowner iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "pt.rafaelalmeida.Countdowner-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -363,6 +524,15 @@
 			buildConfigurations = (
 				26910DCA1F60B12100A82AF2 /* Debug */,
 				26910DCB1F60B12100A82AF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26FF992D201F421200E405A1 /* Build configuration list for PBXNativeTarget "Countdowner iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26FF992E201F421200E405A1 /* Debug */,
+				26FF992F201F421200E405A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
