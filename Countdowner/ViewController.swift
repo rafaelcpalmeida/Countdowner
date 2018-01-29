@@ -13,13 +13,13 @@ class ViewController: NSViewController {
     @IBOutlet weak var settingsButton: NSButton!
     
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
-    var preferences = Preferences()
     
     var addedObserver: Bool = false
     var counter: Int = 0
     var countdownTimer: Timer? = nil
     var countdowner: Countdowner? = nil
     var runningTimer: Bool = false
+    var preferences = Preferences()
     
     
     override func viewDidLoad() {
@@ -59,30 +59,6 @@ class ViewController: NSViewController {
     }
     
     @IBAction func settingsButton(_ sender: NSButton) {
-        showInputDialog()
-    }
-    
-    func setTime() {
-        let countdownerDetails = self.countdowner!.secondsToTime(seconds: counter)
-        
-        self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
-    }
-    
-    @objc func update() {
-        if counter >= 0 {
-            let countdownerDetails = self.countdowner!.update(counter: counter)
-            
-            self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
-            
-            counter -= 1
-        } else {
-            self.pauseTimer()
-            self.runningTimer = false
-            self.setDefaultCounterValue()
-        }
-    }
-    
-    func showInputDialog() {
         let alert = NSAlert()
         let secondsField = NSTextField(frame: NSRect(x: 0, y: 0, width: 300, height: 24))
         
@@ -108,6 +84,12 @@ class ViewController: NSViewController {
         }
     }
     
+    func setTime() {
+        let countdownerDetails = self.countdowner!.secondsToTime(seconds: counter)
+        
+        self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
+    }
+    
     func handleTimer() {
         if !self.runningTimer {
             startTimer()
@@ -116,6 +98,10 @@ class ViewController: NSViewController {
             pauseTimer()
             self.runningTimer = false
         }
+    }
+    
+    func setDefaultCounterValue() {
+        self.counter = Int(preferences.counterTime)
     }
     
     func startTimer() {
@@ -132,8 +118,18 @@ class ViewController: NSViewController {
         self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
     
-    func setDefaultCounterValue() {
-        self.counter = Int(preferences.counterTime)
+    @objc func update() {
+        if counter >= 0 {
+            let countdownerDetails = self.countdowner!.update(counter: counter)
+            
+            self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
+            
+            counter -= 1
+        } else {
+            self.pauseTimer()
+            self.runningTimer = false
+            self.setDefaultCounterValue()
+        }
     }
     
     func updateWindow(color: CGColor, width: Int, height: Int, x: Int, y: Int, minutes: Int, seconds: Int) {
@@ -141,28 +137,4 @@ class ViewController: NSViewController {
         appDelegate.setWindow(widthSize: width, heightSize: height, x: x, y: y)
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
-}
-
-class OnlyIntegerValueFormatter: NumberFormatter {
-    override func isPartialStringValid(_ partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
-        
-        // Ability to reset your field (otherwise you can't delete the content)
-        // You can check if the field is empty later
-        if partialString.isEmpty {
-            return true
-        }
-        
-        // Limit the number of seconds to 3600 (1 hour) as the program is only prepared to countdown minutes
-        if let number = Int(partialString) {
-            if number > 3600 {
-                return false
-            }
-        }
-        
-        // Actual check
-        return Int(partialString) != nil
-    }
-    
-    // Props to Xavier Daleau
-    // https://stackoverflow.com/a/39935157/3431018
 }

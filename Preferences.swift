@@ -6,7 +6,11 @@
 //  Copyright © 2018 Rafael Almeida. All rights reserved.
 //
 
-import Cocoa
+#if os(iOS) || os(watchOS) || os(tvOS)
+    import UIKit
+#elseif os(OSX)
+    import Cocoa
+#endif
 
 struct Preferences {
     
