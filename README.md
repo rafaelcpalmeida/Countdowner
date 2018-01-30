@@ -1,7 +1,7 @@
 # Countdowner
 ![Countdowner logo](https://raw.githubusercontent.com/rafaelcpalmeida/Countdowner/master/img/countdownerLogo.jpg)
 
-Countdowner is a simple tool that I built to help to keep a track on time. It shows a countdown watch and its purpose is to help someone who's presenting something to an audience to not go along their available time slot.
+Countdowner is a simple tool that I built to help to keep a track on time. It shows a countdown watch and its purpose is to help someone who's presenting something to an audience to extend their available time slot. It is available for both **macOS** and **iOS**.
 
 # How it works
 From out of the box Countdowner is configured to 30 minutes. If you wish to change this time just press the white cog visible on the rectangle and insert a new time, in seconds.
@@ -15,6 +15,8 @@ In the images below you can see the workflow for Countdowner:
 
 ### Step 3
 ![Countdowner logo](https://raw.githubusercontent.com/rafaelcpalmeida/Countdowner/master/img/step3.jpg)
+
+In the images above you saw the flow of the **macOS** app. In the **iOS** version the app will fill the whole screen with the correspondent color.
 
 # Known bugs
 None at the moment.
