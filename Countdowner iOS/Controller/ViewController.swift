@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         self.setTime()
         
         self.view.layer.backgroundColor = CGColor.green
+        
+        UIApplication.shared.isIdleTimerDisabled = true
     }
 
     override func didReceiveMemoryWarning() {
