@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var countDownLabel: UILabel!
     
+    let countdownerService = CountdownerServiceManager()
+    
     var counter: Int = 0
     var countdownTimer: Timer? = nil
     var countdowner: Countdowner? = nil
@@ -21,12 +23,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        countdownerService.delegate = self
+        
         self.setDefaultCounterValue()
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
         
         self.view.layer.backgroundColor = CGColor.green
-        
+            
         UIApplication.shared.isIdleTimerDisabled = true
     }
 
@@ -92,6 +96,7 @@ class ViewController: UIViewController {
     }
     
     func startTimer() {
+        self.counter -= 1
         self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
@@ -107,11 +112,11 @@ class ViewController: UIViewController {
     
     @objc func update() {
         if counter >= 0 {
+            counter -= 1
+            
             let countdownerDetails = self.countdowner!.update(counter: counter)
             
             self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
-            
-            counter -= 1
         } else {
             self.pauseTimer()
             self.runningTimer = false
@@ -122,6 +127,30 @@ class ViewController: UIViewController {
     func updateWindow(color: CGColor, minutes: Int, seconds: Int) {
         self.view.layer.backgroundColor = color
         self.countDownLabel.text = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
+    }
+    
+}
+
+extension ViewController : CountdownerServiceManagerDelegate {
+    
+    func connectedDevicesChanged(manager: CountdownerServiceManager, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            //self.connectionsLabel.text = "Connections: \(connectedDevices)"
+            print(connectedDevices)
+        }
+    }
+    
+    func actionReceived(manager : CountdownerServiceManager, action: ACTION) {
+        OperationQueue.main.addOperation {
+            switch action {
+            case .start:
+                self.handleTimer()
+            case .pause:
+                self.handleTimer()
+            case .restart:
+                self.resetTimer()
+            }
+        }
     }
     
 }
