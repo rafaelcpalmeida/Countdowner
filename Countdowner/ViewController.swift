@@ -93,6 +93,9 @@ class ViewController: NSViewController {
     
     func handleTimer() {
         if !self.runningTimer {
+            if self.counter == 0 {
+                self.resetTimer()
+            }
             startTimer()
             self.runningTimer = true
         } else {
@@ -114,13 +117,15 @@ class ViewController: NSViewController {
     }
     
     func resetTimer() {
+        self.setDefaultCounterValue()
+        
         let countdownerDetails = self.countdowner!.defaultState(counter: counter)
         
         self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
     
     @objc func update() {
-        if counter >= 0 {
+        if counter > 0 {
             counter -= 1
             
             let countdownerDetails = self.countdowner!.update(counter: counter)
@@ -130,7 +135,6 @@ class ViewController: NSViewController {
         } else {
             self.pauseTimer()
             self.runningTimer = false
-            self.setDefaultCounterValue()
         }
     }
     

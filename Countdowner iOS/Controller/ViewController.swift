@@ -83,6 +83,9 @@ class ViewController: UIViewController {
     
     func handleTimer() {
         if !self.runningTimer {
+            if self.counter == 0 {
+                self.resetTimer()
+            }
             startTimer()
             self.runningTimer = true
         } else {
@@ -96,7 +99,6 @@ class ViewController: UIViewController {
     }
     
     func startTimer() {
-        self.counter -= 1
         self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
@@ -105,13 +107,15 @@ class ViewController: UIViewController {
     }
     
     func resetTimer() {
+        self.setDefaultCounterValue()
+        
         let countdownerDetails = self.countdowner!.defaultState(counter: counter)
         
         self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
     
     @objc func update() {
-        if counter >= 0 {
+        if counter > 0 {
             counter -= 1
             
             let countdownerDetails = self.countdowner!.update(counter: counter)
@@ -120,7 +124,6 @@ class ViewController: UIViewController {
         } else {
             self.pauseTimer()
             self.runningTimer = false
-            self.setDefaultCounterValue()
         }
     }
     
