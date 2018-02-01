@@ -13,6 +13,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var settingsButton: NSButton!
     
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    let countdownerService = CountdownerServiceManager()
     
     var addedObserver: Bool = false
     var counter: Int = 0
@@ -120,11 +121,12 @@ class ViewController: NSViewController {
     
     @objc func update() {
         if counter >= 0 {
+            counter -= 1
+            
             let countdownerDetails = self.countdowner!.update(counter: counter)
             
             self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
             
-            counter -= 1
         } else {
             self.pauseTimer()
             self.runningTimer = false
