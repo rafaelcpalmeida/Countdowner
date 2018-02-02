@@ -13,6 +13,8 @@
 		26910DC01F60B12100A82AF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910DBF1F60B12100A82AF2 /* ViewController.swift */; };
 		26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC11F60B12100A82AF2 /* Assets.xcassets */; };
 		26910DC51F60B12100A82AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC31F60B12100A82AF2 /* Main.storyboard */; };
+		26B66579202385CD00DF52FC /* CountdownerServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */; };
+		26B6657A202386EE00DF52FC /* CountdownerServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */; };
 		26C94245201FCBE3006055BE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
 		26C94246201FCC10006055BE /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
 		26C94248201FCD4C006055BE /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */; };
@@ -35,6 +37,8 @@
 		26910DC11F60B12100A82AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26910DC41F60B12100A82AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26910DC61F60B12100A82AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownerServiceManager.swift; sourceTree = "<group>"; };
+		26B6657B20238B9500DF52FC /* Countdowner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Countdowner.entitlements; sourceTree = "<group>"; };
 		26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyIntegerValueFormatter.swift; sourceTree = "<group>"; };
 		26FF9913201E085700E405A1 /* Countdowner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdowner.swift; sourceTree = "<group>"; };
 		26FF9915201E7D0600E405A1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		26910DB11F60B12100A82AF2 = {
 			isa = PBXGroup;
 			children = (
+				26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */,
 				26FF9913201E085700E405A1 /* Countdowner.swift */,
 				26FF9915201E7D0600E405A1 /* Preferences.swift */,
 				26784B5C201F59E6005B7562 /* CGColor.swift */,
@@ -90,6 +95,7 @@
 		26910DBC1F60B12100A82AF2 /* Countdowner */ = {
 			isa = PBXGroup;
 			children = (
+				26B6657B20238B9500DF52FC /* Countdowner.entitlements */,
 				26910DCF1F60B31300A82AF2 /* Model */,
 				26910DCC1F60B2EA00A82AF2 /* View */,
 				26910DCE1F60B30700A82AF2 /* Controller */,
@@ -216,6 +222,11 @@
 						DevelopmentTeam = 2C25YQ4V5V;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					26FF991D201F421100E405A1 = {
 						CreatedOnToolsVersion = 9.0;
@@ -306,6 +317,7 @@
 				26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */,
 				26C94246201FCC10006055BE /* CGColor.swift in Sources */,
 				26FF9914201E085700E405A1 /* Countdowner.swift in Sources */,
+				26B66579202385CD00DF52FC /* CountdownerServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +331,7 @@
 				26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */,
 				26FF9933201F556C00E405A1 /* Countdowner.swift in Sources */,
 				26784B5D201F59E6005B7562 /* CGColor.swift in Sources */,
+				26B6657A202386EE00DF52FC /* CountdownerServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Countdowner/Countdowner.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2C25YQ4V5V;
@@ -480,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Countdowner/Countdowner.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2C25YQ4V5V;

@@ -110,10 +110,16 @@ class ViewController: NSViewController {
     
     func startTimer() {
         self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        
+        //self.countdownerService.send(action: "start", counter: counter)
+        self.countdownerService.send(action: "start")
     }
     
     func pauseTimer() {
         self.countdownTimer?.invalidate()
+        
+        //self.countdownerService.send(action: "pause", counter: counter)
+        self.countdownerService.send(action: "pause")
     }
     
     func resetTimer() {
@@ -122,6 +128,10 @@ class ViewController: NSViewController {
         let countdownerDetails = self.countdowner!.defaultState(counter: counter)
         
         self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
+        
+        
+        //self.countdownerService.send(action: "reset", counter: counter)
+        self.countdownerService.send(action: "reset")
     }
     
     @objc func update() {
