@@ -121,8 +121,6 @@ class ViewController: UIViewController {
             let countdownerDetails = self.countdowner!.update(counter: counter)
             
             self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
-            
-            print(counter)
         } else {
             self.pauseTimer()
             self.runningTimer = false
@@ -148,12 +146,13 @@ extension ViewController : CountdownerServiceManagerDelegate {
     //func actionReceived(manager : CountdownerServiceManager, action: ACTION, counter: Int) {
     func actionReceived(manager : CountdownerServiceManager, action: ACTION) {
         OperationQueue.main.addOperation {
-            print("Received something")
-            
             switch action {
             case .start:
                 //self.counter = counter
                 if !self.runningTimer {
+                    if self.counter == 0 {
+                        self.resetTimer()
+                    }
                     self.startTimer()
                 }
             case .pause:

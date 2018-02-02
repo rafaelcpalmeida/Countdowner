@@ -39,7 +39,7 @@ class CountdownerServiceManager : NSObject {
     var delegate : CountdownerServiceManagerDelegate?
 
     lazy var session : MCSession = {
-        let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
+        let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .optional)
         session.delegate = self
         return session
     }()
