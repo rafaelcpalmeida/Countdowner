@@ -6,6 +6,7 @@ Countdowner is a simple tool that I built to help to keep a track on time. It sh
 ## Contents
 - <a href="#how-it-works">How it works</a>
 - <a href="#usage-instructions">Usage instructions</a>
+- <a href="#compile-instructions">Compile instructions</a>
 - <a href="#known-bugs">Known bugs</a>
 - <a href="#thanks-to">Thanks to</a>
 - <a href="#license">License</a>
@@ -37,6 +38,22 @@ Below you can find the instructions for **macoS** and **iOS** versions.
 - Single tap on the screen and the timer will start or stop, if the timer was stopped or running, accordingly.
 - Click on the cog to set the timer, in seconds
 
+# Compile instructions
+In order to compile the app to either **macOS** or **iOS** you'll need an Apple Developer account. You can get yours at the [Apple Developer Portal]. Below you'll find instructions for both platforms.
+
+## macOS
+- Download the project ZIP or clone this repo in your machine.
+- Open the project on **Xcode**
+- Enter the project config page by:
+    - Clicking the project name just below Xcode window controls
+    - Go to **General** tab and just below **Targets** you'll see two entries: `Countdowner` and `Countdowner iOS`. Make sure to select the first one
+    - Under **Identity** you'll find a field named `Bundle Identifier`. Change it accordingly (i.e.: **com.yourName.Countdowner**)
+    - Under signing select your Team
+- Build and run the app
+
+## iOS
+**iOS** compile instructions will be available soon.
+
 # Known bugs
 None at the moment.
 
@@ -55,4 +72,4 @@ MIT
 
    [P.J. Onori]: <https://www.iconfinder.com/icons/118694/cog_icon>
    [Maxim Popov]: <https://www.freepik.com/free-vector/business-man-hand-holding-stopwatch_1311462.htm>
-
+   [Apple Developer Portal]: <https://developer.apple.com>
