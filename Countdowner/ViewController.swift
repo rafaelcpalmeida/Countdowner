@@ -11,6 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
     @IBOutlet weak var countDownLabel: NSTextField!
     @IBOutlet weak var settingsButton: NSButton!
+    @IBOutlet weak var connectedPeers: NSTextField!
     
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let countdownerService = CountdownerServiceManager()
@@ -25,6 +26,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.countdownerService.delegate = self
         
         self.setDefaultCounterValue()
         self.countdowner = Countdowner(counter: counter)
@@ -111,14 +114,12 @@ class ViewController: NSViewController {
     func startTimer() {
         self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         
-        //self.countdownerService.send(action: "start", counter: counter)
         self.countdownerService.send(action: "start")
     }
     
     func pauseTimer() {
         self.countdownTimer?.invalidate()
         
-        //self.countdownerService.send(action: "pause", counter: counter)
         self.countdownerService.send(action: "pause")
     }
     
@@ -129,8 +130,6 @@ class ViewController: NSViewController {
         
         self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
         
-        
-        //self.countdownerService.send(action: "reset", counter: counter)
         self.countdownerService.send(action: "reset")
     }
     
@@ -153,4 +152,19 @@ class ViewController: NSViewController {
         appDelegate.setWindow(widthSize: width, heightSize: height, x: x, y: y)
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
+}
+
+extension ViewController : CountdownerServiceManagerDelegate {
+    
+    func connectedDevicesChanged(manager: CountdownerServiceManager, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            self.connectedPeers.stringValue = "Connected devices: \(connectedDevices.count)"
+        }
+    }
+    
+    func actionReceived(manager : CountdownerServiceManager, action: ACTION) {
+        OperationQueue.main.addOperation {
+        }
+    }
+    
 }

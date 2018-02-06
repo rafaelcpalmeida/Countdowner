@@ -138,12 +138,10 @@ extension ViewController : CountdownerServiceManagerDelegate {
     
     func connectedDevicesChanged(manager: CountdownerServiceManager, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
-            //self.connectionsLabel.text = "Connections: \(connectedDevices)"
             print(connectedDevices)
         }
     }
     
-    //func actionReceived(manager : CountdownerServiceManager, action: ACTION, counter: Int) {
     func actionReceived(manager : CountdownerServiceManager, action: ACTION) {
         OperationQueue.main.addOperation {
             switch action {
@@ -154,10 +152,12 @@ extension ViewController : CountdownerServiceManagerDelegate {
                         self.resetTimer()
                     }
                     self.startTimer()
+                    self.runningTimer = true
                 }
             case .pause:
                 if self.runningTimer {
                     self.pauseTimer()
+                    self.runningTimer = false
                 }
             case .restart:
                 self.resetTimer()

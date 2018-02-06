@@ -39,7 +39,7 @@ class CountdownerServiceManager : NSObject {
     var delegate : CountdownerServiceManagerDelegate?
 
     lazy var session : MCSession = {
-        let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .optional)
+        let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
         session.delegate = self
         return session
     }()
@@ -113,12 +113,13 @@ extension CountdownerServiceManager : MCSessionDelegate {
 
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         //NSLog("%@", "peer \(peerID) didChangeState: \(state)")
+        print(session.connectedPeers.map{$0.displayName})
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
             session.connectedPeers.map{$0.displayName})
     }
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveData: \(data)")
+        //NSLog("%@", "didReceiveData: \(data)")
         if let action = ACTION(rawValue: String(data: data, encoding: .utf8)!) {
             print(data)
             //self.delegate?.actionReceived(manager: self, action: action, counter: <#Int#>)
