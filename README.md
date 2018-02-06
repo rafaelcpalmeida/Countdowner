@@ -48,7 +48,8 @@ In order to compile the app to either **macOS** or **iOS** you'll need an Apple 
     - Clicking the project name just below Xcode window controls
     - Go to **General** tab and just below **Targets** you'll see two entries: `Countdowner` and `Countdowner iOS`. Make sure to select the first one
     - Under **Identity** you'll find a field named `Bundle Identifier`. Change it accordingly (i.e.: **com.yourName.Countdowner**)
-    - Under signing select your Team
+    - Under signing select your Team and, if `Automatically manage signing` is selected **Xcode** will handle signing
+    - Everything should now be ready
 - Build and run the app
 
 ## iOS
