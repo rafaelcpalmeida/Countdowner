@@ -3,6 +3,12 @@
 
 Countdowner is a simple tool that I built to help to keep a track on time. It shows a countdown watch and its purpose is to help someone who's presenting something to an audience to extend their available time slot. It is available for both **macOS** and **iOS**.
 
+## Contents
+- <a href="#how-it-works">How it works</a>
+- <a href="#known-bugs">Known bugs</a>
+- <a href="#thanks-to">Thanks to</a>
+- <a href="#license">License</a>
+
 # How it works
 From out of the box Countdowner is configured to 30 minutes. If you wish to change this time just press the white cog visible on the rectangle and insert a new time, in seconds.
 
@@ -36,3 +42,4 @@ MIT
 
    [P.J. Onori]: <https://www.iconfinder.com/icons/118694/cog_icon>
    [Maxim Popov]: <https://www.freepik.com/free-vector/business-man-hand-holding-stopwatch_1311462.htm>
+
