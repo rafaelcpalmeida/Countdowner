@@ -5,6 +5,7 @@ Countdowner is a simple tool that I built to help to keep a track on time. It sh
 
 ## Contents
 - <a href="#how-it-works">How it works</a>
+- <a href="#usage-instructions">Usage instructions</a>
 - <a href="#known-bugs">Known bugs</a>
 - <a href="#thanks-to">Thanks to</a>
 - <a href="#license">License</a>
@@ -23,6 +24,18 @@ In the images below you can see the workflow for Countdowner:
 ![Countdowner logo](https://raw.githubusercontent.com/rafaelcpalmeida/Countdowner/master/img/step3.jpg)
 
 In the images above you saw the flow of the **macOS** app. In the **iOS** version the app will fill the whole screen with the correspondent color.
+
+# Usage instructions
+Below you can find the instructions for **macoS** and **iOS** versions.
+
+## macOS
+- Left click anywhere on the window (except the cog) and the timer will start or stop, if the timer was stopped or running, accordingly.
+- Right click anywhere on the window (except the cog) and the timer will be reseted and ready to be executed.
+- Click on the cog to set the timer, in seconds
+
+## iOS
+- Single tap on the screen and the timer will start or stop, if the timer was stopped or running, accordingly.
+- Click on the cog to set the timer, in seconds
 
 # Known bugs
 None at the moment.
