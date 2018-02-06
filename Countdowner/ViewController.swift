@@ -55,11 +55,12 @@ class ViewController: NSViewController {
     }
     
     override func mouseDown(with theEvent: NSEvent) {
-        handleTimer()
+        self.handleTimer()
     }
     
     override func rightMouseDown(with theEvent: NSEvent) {
-        handleTimer()
+        self.resetTimer()
+        self.handleTimer()
     }
     
     @IBAction func settingsButton(_ sender: NSButton) {
