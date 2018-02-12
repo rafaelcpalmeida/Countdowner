@@ -33,7 +33,15 @@ class ViewController: UIViewController {
             
         UIApplication.shared.isIdleTimerDisabled = true
     }
-
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,7 +54,6 @@ class ViewController: UIViewController {
     @IBAction func doubleTouchTapRecognizer(_ sender: Any) {
         self.resetTimer()
     }
-    
     
     @IBAction func settingsButton(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: "Please insert the value, in seconds, of the timer:", preferredStyle: .alert)
