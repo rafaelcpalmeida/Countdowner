@@ -60,7 +60,6 @@ class ViewController: NSViewController {
     
     override func rightMouseDown(with theEvent: NSEvent) {
         self.resetTimer()
-        self.handleTimer()
     }
     
     @IBAction func settingsButton(_ sender: NSButton) {
@@ -113,25 +112,27 @@ class ViewController: NSViewController {
     }
     
     func startTimer() {
-        self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-        
         self.countdownerService.send(action: "start")
+        
+        self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {
-        self.countdownTimer?.invalidate()
-        
         self.countdownerService.send(action: "pause")
+        
+        self.countdownTimer?.invalidate()
     }
     
     func resetTimer() {
+        self.countdownerService.send(action: "reset")
+        
+        self.handleTimer()
+        
         self.setDefaultCounterValue()
         
         let countdownerDetails = self.countdowner!.defaultState(counter: counter)
         
         self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
-        
-        self.countdownerService.send(action: "reset")
     }
     
     @objc func update() {
