@@ -74,6 +74,11 @@ class ViewController: UIViewController {
         self.handleTimer()
     }
     
+    @IBAction func doubleTouchTapRecognizer(_ sender: Any) {
+        self.resetTimer()
+    }
+    
+    
     @IBAction func settingsButton(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: "Please insert the value, in seconds, of the timer:", preferredStyle: .alert)
         

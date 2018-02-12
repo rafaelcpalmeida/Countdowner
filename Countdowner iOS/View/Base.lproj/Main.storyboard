@@ -49,6 +49,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="jCr-20-WZa" appends="YES" id="anv-SI-5HU"/>
+                            <outletCollection property="gestureRecognizers" destination="ZvO-Ge-eje" appends="YES" id="TYH-RQ-t4X"/>
                         </connections>
                     </view>
                     <connections>
@@ -56,9 +57,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="jCr-20-WZa">
+                <tapGestureRecognizer id="jCr-20-WZa" userLabel="Single Touch Tap Gesture Recognizer">
                     <connections>
                         <action selector="tapRecognizer:" destination="BYZ-38-t0r" id="xD1-IY-vsd"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTouchesRequired="2" id="ZvO-Ge-eje" userLabel="Double Touch Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="doubleTouchTapRecognizer:" destination="BYZ-38-t0r" id="feD-7X-ZzI"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
