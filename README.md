@@ -35,7 +35,8 @@ Below you can find the instructions for **macoS** and **iOS** versions.
 - Click on the cog to set the timer, in seconds
 
 ## iOS
-- Single tap on the screen and the timer will start or stop, if the timer was stopped or running, accordingly.
+- Single tap with one finger on the screen and the timer will start or stop, if the timer was stopped or running, accordingly.
+- Single tap with two fingers on the screen and the timer will be reseted and ready to be executed.
 - Click on the cog to set the timer, in seconds
 
 # Compile instructions
@@ -53,7 +54,15 @@ In order to compile the app to either **macOS** or **iOS** you'll need an Apple 
 - Build and run the app
 
 ## iOS
-**iOS** compile instructions will be available soon.
+- Download the project ZIP or clone this repo in your machine.
+- Open the project on **Xcode**
+- Enter the project config page by:
+    - Clicking the project name just below Xcode window controls
+    - Go to **General** tab and just below **Targets** you'll see two entries: `Countdowner` and `Countdowner iOS`. Make sure to select the second one
+    - Under **Identity** you'll find a field named `Bundle Identifier`. Change it accordingly (i.e.: **com.yourName.Countdowner**)
+    - Under signing select your Team and, if `Automatically manage signing` is selected **Xcode** will handle signing
+    - Everything should now be ready
+- Build and run the app
 
 # Known bugs
 None at the moment.
