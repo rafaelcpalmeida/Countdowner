@@ -56,34 +56,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func settingsButton(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: "Please insert the value, in seconds, of the timer:", preferredStyle: .alert)
+        let views = view.subviews.filter({$0 is MinuteSecondPickerView})
         
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "30 minutes equals to 1800 seconds"
-            textField.keyboardType = .numberPad
-            textField.clearButtonMode = .whileEditing
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            if let seconds = Int((alert.textFields?.first?.text)!) {
-                if seconds > 0 && seconds < 3600 {
-                    self.preferences.counterTime = Double(seconds)
-                    self.countdowner!.setCountdownValue(counter: seconds)
-                    
-                    self.counter = seconds
-                    self.setTime()
-                } else {
-                    let errorAlert = UIAlertController(title: "Error", message: "Seconds must be higher than 0 and lower than 3600", preferredStyle: .alert)
-                    
-                    errorAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    
-                    self.present(errorAlert, animated: true)
-                }
+        if views.count > 0 {
+            for view in views {
+                view.removeFromSuperview()
             }
-        }))
-        
-        self.present(alert, animated: true)
+        } else {
+            let minutesSecondsPicker = MinuteSecondPickerView()
+            
+            minutesSecondsPicker.frame.size.width = self.view.frame.width / 3
+            minutesSecondsPicker.frame.size.height = self.view.frame.height / 3
+            
+            minutesSecondsPicker.center = CGPoint(x: self.view.frame.width / 2, y: (self.view.frame.height - minutesSecondsPicker.frame.height) + (minutesSecondsPicker.frame.size.height / 2))
+            
+            minutesSecondsPicker.onDateSelected = { (minutes: Int, seconds: Int) in
+                let seconds = (minutes * 60) + seconds
+                
+                self.preferences.counterTime = Double(seconds)
+                self.countdowner!.setCountdownValue(counter: seconds)
+                
+                self.counter = seconds
+                self.setTime()
+            }
+            
+            self.view.addSubview(minutesSecondsPicker)
+        }
     }
     
     

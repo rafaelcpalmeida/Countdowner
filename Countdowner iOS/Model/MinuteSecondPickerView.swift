@@ -1,0 +1,93 @@
+//
+//  MinuteSecondPickerView.swift
+//  Countdowner iOS
+//
+//  Created by Rafael Almeida on 12/02/18.
+//  Copyright © 2018 Rafael Almeida. All rights reserved.
+//
+//  Based on MonthYearPickerView-Swift by Ben Dodson
+//  Available at https://github.com/bendodson/MonthYearPickerView-Swift
+//
+
+import UIKit
+
+class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let preferences = Preferences()
+    
+    var minutes: [Int]!
+    var seconds: [Int]!
+    
+    var minute: Int = 0
+    
+    var second: Int = 0
+    
+    var onDateSelected: ((_ month: Int, _ year: Int) -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.commonSetup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.commonSetup()
+    }
+    
+    func commonSetup() {
+        // population seconds
+        self.seconds = Array(0...60)
+        
+        // population minutes
+        self.minutes = Array(1...60)
+        
+        self.delegate = self
+        self.dataSource = self
+        
+        // show the picker using the stored values
+        self.selectRow(Int(preferences.counterTime / 60) - 1, inComponent: 0, animated: true)
+        self.selectRow(Int(preferences.counterTime.truncatingRemainder(dividingBy: 60)), inComponent: 1, animated: true)
+    }
+    
+    // Mark: UIPicker Delegate / Data Source
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        switch component {
+        case 0:
+            return NSAttributedString(string: String(format: "%02d", minutes[row]), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        case 1:
+            return NSAttributedString(string: String(format: "%02d", seconds[row]), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        default:
+            return nil
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch component {
+        case 0:
+            return minutes.count
+        case 1:
+            return seconds.count
+        default:
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let minute = self.selectedRow(inComponent: 0)+1
+        let second = seconds[self.selectedRow(inComponent: 1)]
+        
+        if let block = onDateSelected {
+            block(minute, second)
+        }
+        
+        self.minute = minute
+        self.second = second
+    }
+    
+}
+
