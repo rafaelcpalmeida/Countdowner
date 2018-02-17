@@ -112,19 +112,19 @@ class ViewController: NSViewController {
     }
     
     func startTimer() {
-        self.countdownerService.send(action: "start")
+        self.countdownerService.send(action: .start)
         
         self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {
-        self.countdownerService.send(action: "pause")
+        self.countdownerService.send(action: .pause)
         
         self.countdownTimer?.invalidate()
     }
     
     func resetTimer() {
-        self.countdownerService.send(action: "reset")
+        self.countdownerService.send(action: .reset)
         
         self.handleTimer()
         
@@ -164,7 +164,7 @@ extension ViewController : CountdownerServiceManagerDelegate {
         }
     }
     
-    func actionReceived(manager : CountdownerServiceManager, action: ACTION) {
+    func actionReceived(manager : CountdownerServiceManager, action: Action) {
         OperationQueue.main.addOperation {
         }
     }

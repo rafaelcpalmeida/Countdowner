@@ -151,7 +151,7 @@ extension ViewController : CountdownerServiceManagerDelegate {
         //
     }
     
-    func actionReceived(manager : CountdownerServiceManager, action: ACTION) {
+    func actionReceived(manager: CountdownerServiceManager, action: Action) {
         OperationQueue.main.addOperation {
             switch action {
             case .start:

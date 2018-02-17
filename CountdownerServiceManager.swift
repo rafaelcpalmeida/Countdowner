@@ -5,16 +5,16 @@
 import Foundation
 import MultipeerConnectivity
 
-enum ACTION: String {
-    case start = "start"
-    case pause = "pause"
-    case reset = "reset"
+enum Action: String {
+    case start
+    case pause
+    case reset
 }
 
 protocol CountdownerServiceManagerDelegate {
 
-    func connectedDevicesChanged(manager : CountdownerServiceManager, connectedDevices: [String])
-    func actionReceived(manager : CountdownerServiceManager, action: ACTION)
+    func connectedDevicesChanged(manager: CountdownerServiceManager, connectedDevices: [String])
+    func actionReceived(manager: CountdownerServiceManager, action: Action)
 
 }
 
@@ -56,12 +56,12 @@ class CountdownerServiceManager : NSObject {
         self.serviceBrowser.startBrowsingForPeers()
     }
 
-    func send(action : String) {
+    func send(action: Action) {
         //NSLog("%@", "action: \(action) to \(session.connectedPeers.count) peers")
 
         if session.connectedPeers.count > 0 {
             do {
-                try self.session.send(action.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+                try self.session.send(action.rawValue.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
             }
             catch {
                 NSLog("%@", "Error for sending: \(error)")
@@ -118,7 +118,7 @@ extension CountdownerServiceManager : MCSessionDelegate {
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         //NSLog("%@", "didReceiveData: \(data)")
-        if let action = ACTION(rawValue: String(data: data, encoding: .utf8)!) {
+        if let action = Action(rawValue: String(data: data, encoding: .utf8)!) {
             //self.delegate?.actionReceived(manager: self, action: action, counter: <#Int#>)
             self.delegate?.actionReceived(manager: self, action: action)
         }
