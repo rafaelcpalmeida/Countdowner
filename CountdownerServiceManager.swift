@@ -24,7 +24,7 @@ protocol CountdownerServiceManagerDelegate {
     let displayName = Host.current().name!
 #endif
 
-class CountdownerServiceManager : NSObject {
+class CountdownerServiceManager: NSObject {
 
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.

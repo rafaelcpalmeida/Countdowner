@@ -15,8 +15,8 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     
     let preferences = Preferences()
     
-    var minutes: [Int]!
-    var seconds: [Int]!
+    var minutes: [Int] = Array(1...60)
+    var seconds: [Int] = Array(0...60)
     
     var minute = 0
     
@@ -35,12 +35,6 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func commonSetup() {
-        // population seconds
-        self.seconds = Array(0...60)
-        
-        // population minutes
-        self.minutes = Array(1...60)
-        
         self.delegate = self
         self.dataSource = self
         
@@ -78,7 +72,7 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let minute = self.selectedRow(inComponent: 0)+1
+        let minute = self.selectedRow(inComponent: 0) + 1
         let second = seconds[self.selectedRow(inComponent: 1)]
         
         if let block = onDateSelected {

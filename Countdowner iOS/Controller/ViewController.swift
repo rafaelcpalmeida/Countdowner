@@ -56,12 +56,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func settingsButton(_ sender: Any) {
-        let views = view.subviews.filter({$0 is MinuteSecondPickerView})
+        let views = view.subviews.filter { $0 is MinuteSecondPickerView }
         
         if views.count > 0 {
-            for view in views {
-                view.removeFromSuperview()
-            }
+            views.forEach { $0.removeFromSuperview() }
         } else {
             let minutesSecondsPicker = MinuteSecondPickerView()
             

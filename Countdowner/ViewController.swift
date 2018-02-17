@@ -75,16 +75,13 @@ class ViewController: NSViewController {
         alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
         alert.accessoryView = secondsField
         
-        if alert.runModal() == .alertFirstButtonReturn {
-            if let seconds = Int(secondsField.stringValue) {
-                if seconds > 0 {
-                    self.preferences.counterTime = Double(seconds)
-                    self.countdowner!.setCountdownValue(counter: seconds)
-                    
-                    self.counter = seconds
-                    self.setTime()
-                }
-            }
+        if alert.runModal() == .alertFirstButtonReturn,
+            let seconds = Int(secondsField.stringValue),
+            seconds > 0 {
+            self.preferences.counterTime = Double(seconds)
+            self.countdowner?.setCountdownValue(counter: seconds)
+
+            self.counter = seconds
         }
     }
     
