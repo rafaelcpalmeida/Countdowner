@@ -66,13 +66,13 @@ class ViewController: NSViewController {
         let alert = NSAlert()
         let secondsField = NSTextField(frame: NSRect(x: 0, y: 0, width: 300, height: 24))
         
-        secondsField.placeholderString = "30 minutes equals to 1800 seconds"
+        secondsField.placeholderString = NSLocalizedString("30 minutes equals to 1800 seconds", comment: "")
         secondsField.formatter = OnlyIntegerValueFormatter()
         
-        alert.messageText = "Please insert the value, in seconds, of the timer:"
+        alert.messageText = NSLocalizedString("Please insert the value, in seconds, of the timer:", comment: "")
         alert.alertStyle = .informational
-        alert.addButton(withTitle: "OK")
-        alert.addButton(withTitle: "Cancel")
+        alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
         alert.accessoryView = secondsField
         
         if alert.runModal() == .alertFirstButtonReturn {
