@@ -89,7 +89,7 @@ class ViewController: NSViewController {
     }
     
     func setTime() {
-        let countdownerDetails = self.countdowner!.secondsToTime(seconds: counter)
+        guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: counter) else { fatalError() }
         
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
@@ -139,7 +139,7 @@ class ViewController: NSViewController {
         if counter > 0 {
             counter -= 1
             
-            let countdownerDetails = self.countdowner!.update(counter: counter)
+            guard let countdownerDetails = self.countdowner?.update(counter: counter) else { fatalError() }
             
             self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
             

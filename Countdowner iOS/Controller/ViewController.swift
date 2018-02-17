@@ -74,7 +74,7 @@ class ViewController: UIViewController {
                 let seconds = (minutes * 60) + seconds
                 
                 self.preferences.counterTime = Double(seconds)
-                self.countdowner!.setCountdownValue(counter: seconds)
+                self.countdowner?.setCountdownValue(counter: seconds)
                 
                 self.counter = seconds
                 self.setTime()
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
     
     
     func setTime() {
-        let countdownerDetails = self.countdowner!.secondsToTime(seconds: counter)
+        guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: counter) else { fatalError() }
         
         self.countDownLabel.text = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
         
         self.setDefaultCounterValue()
         
-        let countdownerDetails = self.countdowner!.defaultState(counter: counter)
+        guard let countdownerDetails = self.countdowner?.defaultState(counter: counter) else { fatalError() }
         
         self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
         if counter > 0 {
             counter -= 1
             
-            let countdownerDetails = self.countdowner!.update(counter: counter)
+            guard let countdownerDetails = self.countdowner?.update(counter: counter) else { fatalError() }
             
             self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
         } else {
