@@ -16,11 +16,11 @@ class ViewController: NSViewController {
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let countdownerService = CountdownerServiceManager()
     
-    var addedObserver: Bool = false
-    var counter: Int = 0
-    var countdownTimer: Timer? = nil
-    var countdowner: Countdowner? = nil
-    var runningTimer: Bool = false
+    var addedObserver = false
+    var counter = 0
+    var countdownTimer: Timer?
+    var countdowner: Countdowner?
+    var runningTimer = false
     var preferences = Preferences()
     
     
@@ -32,10 +32,10 @@ class ViewController: NSViewController {
         self.setDefaultCounterValue()
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
-        self.view.layer?.backgroundColor = CGColor.green
+        self.view.layer?.backgroundColor = .green
         
         if let window = self.view.window {
-            window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(CGWindowLevelKey.floatingWindow)))
+            window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.floatingWindow)))
         } else {
             addedObserver = true
             self.addObserver(self, forKeyPath: "view.window", options: [.new, .initial], context: nil)
@@ -44,7 +44,7 @@ class ViewController: NSViewController {
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let window = self.view.window {
-            window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(CGWindowLevelKey.overlayWindow)))
+            window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.overlayWindow)))
         }
     }
     
@@ -114,7 +114,7 @@ class ViewController: NSViewController {
     func startTimer() {
         self.countdownerService.send(action: "start")
         
-        self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {

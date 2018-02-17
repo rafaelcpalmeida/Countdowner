@@ -19,9 +19,9 @@ protocol CountdownerServiceManagerDelegate {
 }
 
 #if os(iOS) || os(watchOS) || os(tvOS)
-    let displayName: String = UIDevice.current.name
+    let displayName = UIDevice.current.name
 #elseif os(OSX)
-    let displayName: String = Host.current().name!
+    let displayName = Host.current().name!
 #endif
 
 class CountdownerServiceManager : NSObject {
@@ -63,7 +63,7 @@ class CountdownerServiceManager : NSObject {
             do {
                 try self.session.send(action.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
             }
-            catch let error {
+            catch {
                 NSLog("%@", "Error for sending: \(error)")
             }
         }

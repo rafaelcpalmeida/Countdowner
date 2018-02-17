@@ -18,9 +18,9 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     var minutes: [Int]!
     var seconds: [Int]!
     
-    var minute: Int = 0
+    var minute = 0
     
-    var second: Int = 0
+    var second = 0
     
     var onDateSelected: ((_ month: Int, _ year: Int) -> Void)?
     
@@ -58,9 +58,9 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         switch component {
         case 0:
-            return NSAttributedString(string: String(format: "%02d", minutes[row]), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            return NSAttributedString(string: String(format: "%02d", minutes[row]), attributes: [.foregroundColor: UIColor.white])
         case 1:
-            return NSAttributedString(string: String(format: "%02d", seconds[row]), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            return NSAttributedString(string: String(format: "%02d", seconds[row]), attributes: [.foregroundColor: UIColor.white])
         default:
             return nil
         }

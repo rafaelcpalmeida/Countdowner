@@ -18,8 +18,8 @@ class Countdowner {
     var counter: Int = 0
     var alert: Double = 0
     var danger: Double = 0
-    var color: CGColor? = nil
-    var window: WindowSettings? = nil
+    var color: CGColor?
+    var window: WindowSettings?
     
     init(counter: Int) {
         self.setCountdownValue(counter: counter)
@@ -31,10 +31,10 @@ class Countdowner {
         
         switch Double(counter) {
         case self.danger ... self.alert:
-            color = CGColor.yellow
+            color = .yellow
             window = WindowSettings(width: 300, height: 200, x: 50, y: 50)
         case 0 ... self.danger:
-            color = CGColor.red
+            color = .red
             window = WindowSettings(width: 400, height: 300, x: 75, y: 75)
         default:
             return self.defaultState(counter: counter)
@@ -51,7 +51,7 @@ class Countdowner {
         let minutes = counter / 60
         let seconds = counter % 60
         
-        color = CGColor.green
+        color = .green
         window = WindowSettings(width: 200, height: 100, x: 25, y: 25)
         
         return (window: window!, color: color!, minutes: minutes, seconds: seconds)

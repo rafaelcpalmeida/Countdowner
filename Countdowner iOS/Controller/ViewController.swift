@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     
     let countdownerService = CountdownerServiceManager()
     
-    var counter: Int = 0
-    var countdownTimer: Timer? = nil
-    var countdowner: Countdowner? = nil
-    var runningTimer: Bool = false
+    var counter = 0
+    var countdownTimer: Timer?
+    var countdowner: Countdowner?
+    var runningTimer = false
     var preferences = Preferences()
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
         
-        self.view.layer.backgroundColor = CGColor.green
+        self.view.layer.backgroundColor = .green
             
         UIApplication.shared.isIdleTimerDisabled = true
     }
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             
             minutesSecondsPicker.center = CGPoint(x: self.view.frame.width / 2, y: (self.view.frame.height - minutesSecondsPicker.frame.height) + (minutesSecondsPicker.frame.size.height / 2))
             
-            minutesSecondsPicker.onDateSelected = { (minutes: Int, seconds: Int) in
+            minutesSecondsPicker.onDateSelected = { minutes, seconds in
                 let seconds = (minutes * 60) + seconds
                 
                 self.preferences.counterTime = Double(seconds)
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
     }
     
     func startTimer() {
-        self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {
