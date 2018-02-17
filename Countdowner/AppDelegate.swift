@@ -12,20 +12,20 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        setWindow(widthSize: 200, heightSize: 100, x: 25, y: 25)
+        setWindow(width: 200, height: 100, x: 25, y: 25)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-    func setWindow(widthSize: Int, heightSize: Int, x: Int, y: Int) {
-        if let window = NSApplication.shared.windows.first {
-            let windowOriginPoint = CGPoint(x: (NSScreen.main?.frame.width)! - CGFloat((widthSize + x)), y: CGFloat(y))
-            let windowSize = CGSize(width: widthSize, height: heightSize)
-            
-            window.setFrame(NSRect(origin: windowOriginPoint, size: windowSize), display: true)
-        }
+    func setWindow(width: Int, height: Int, x: Int, y: Int) {
+        guard
+            let window = NSApplication.shared.windows.first,
+            let screenWidth = NSScreen.main?.frame.width else { return }
+        let windowOrigin = CGPoint(x: screenWidth - CGFloat(width + x), y: CGFloat(y))
+        let windowSize = CGSize(width: width, height: height)
+
+        window.setFrame(NSRect(origin: windowOrigin, size: windowSize), display: true)
     }
 }
-

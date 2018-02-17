@@ -148,7 +148,7 @@ class ViewController: NSViewController {
     
     func updateWindow(color: CGColor, width: Int, height: Int, x: Int, y: Int, minutes: Int, seconds: Int) {
         self.view.layer?.backgroundColor = color
-        appDelegate.setWindow(widthSize: width, heightSize: height, x: x, y: y)
+        appDelegate.setWindow(width: width, height: height, x: x, y: y)
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
 }
