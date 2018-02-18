@@ -21,15 +21,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         countdownerService.delegate = self
-        
+
         self.setDefaultCounterValue()
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
-        
+
         self.view.layer.backgroundColor = .green
-            
+
         UIApplication.shared.isIdleTimerDisabled = true
     }
 
@@ -56,34 +56,34 @@ class ViewController: UIViewController {
 
     @IBAction func settingsButton(_ sender: Any) {
         let views = view.subviews.filter { $0 is MinuteSecondPickerView }
-        
+
         if views.count > 0 {
             views.forEach { $0.removeFromSuperview() }
         } else {
             let minutesSecondsPicker = MinuteSecondPickerView()
-            
+
             minutesSecondsPicker.frame.size.width = self.view.frame.width / 3
             minutesSecondsPicker.frame.size.height = self.view.frame.height / 3
-            
+
             minutesSecondsPicker.center = CGPoint(x: self.view.frame.width / 2, y: (self.view.frame.height - minutesSecondsPicker.frame.height) + (minutesSecondsPicker.frame.size.height / 2))
-            
+
             minutesSecondsPicker.onDateSelected = { minutes, seconds in
                 let seconds = (minutes * 60) + seconds
-                
+
                 self.preferences.counterTime = Double(seconds)
                 self.countdowner?.setCountdownValue(counter: seconds)
-                
+
                 self.counter = seconds
                 self.setTime()
             }
-            
+
             self.view.addSubview(minutesSecondsPicker)
         }
     }
 
     func setTime() {
         guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: counter) else { fatalError() }
-        
+
         self.countDownLabel.text = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
 
@@ -114,20 +114,20 @@ class ViewController: UIViewController {
 
     func resetTimer() {
         self.handleTimer()
-        
+
         self.setDefaultCounterValue()
-        
+
         guard let countdownerDetails = self.countdowner?.defaultState(counter: counter) else { fatalError() }
-        
+
         self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
 
     @objc func update() {
         if counter > 0 {
             counter -= 1
-            
+
             guard let countdownerDetails = self.countdowner?.update(counter: counter) else { fatalError() }
-            
+
             self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
         } else {
             self.pauseTimer()

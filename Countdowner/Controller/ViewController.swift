@@ -109,7 +109,7 @@ class ViewController: NSViewController {
 
     func startTimer() {
         self.countdownerService.send(action: .start)
-        
+
         self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
 
@@ -149,7 +149,7 @@ class ViewController: NSViewController {
         appDelegate.setWindow(width: width, height: height, x: x, y: y)
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
-    
+
 }
 
 extension ViewController : CountdownerServiceManagerDelegate {
