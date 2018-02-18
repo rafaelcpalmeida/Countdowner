@@ -139,7 +139,7 @@ class ViewController: UIViewController {
         self.view.layer.backgroundColor = color
         self.countDownLabel.text = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
-    
+
 }
 
 extension ViewController : CountdownerServiceManagerDelegate {
