@@ -7,21 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26784B58201F5828005B7562 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9917201E7D1700E405A1 /* WindowSettings.swift */; };
 		26784B5D201F59E6005B7562 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
-		26910DBE1F60B12100A82AF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910DBD1F60B12100A82AF2 /* AppDelegate.swift */; };
-		26910DC01F60B12100A82AF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910DBF1F60B12100A82AF2 /* ViewController.swift */; };
 		26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC11F60B12100A82AF2 /* Assets.xcassets */; };
-		26910DC51F60B12100A82AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC31F60B12100A82AF2 /* Main.storyboard */; };
 		2698AB612032584400E3D7D3 /* MinuteSecondPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB602032584400E3D7D3 /* MinuteSecondPickerView.swift */; };
+		2698AB692039D64B00E3D7D3 /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB662039D64A00E3D7D3 /* OnlyIntegerValueFormatter.swift */; };
+		2698AB6A2039D64B00E3D7D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB672039D64A00E3D7D3 /* AppDelegate.swift */; };
+		2698AB6B2039D64B00E3D7D3 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB682039D64A00E3D7D3 /* WindowSettings.swift */; };
+		2698AB6D2039D65700E3D7D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB6C2039D65700E3D7D3 /* ViewController.swift */; };
 		26B66579202385CD00DF52FC /* CountdownerServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */; };
 		26B6657A202386EE00DF52FC /* CountdownerServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */; };
 		26C94245201FCBE3006055BE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
 		26C94246201FCC10006055BE /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
-		26C94248201FCD4C006055BE /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */; };
 		26FF9914201E085700E405A1 /* Countdowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9913201E085700E405A1 /* Countdowner.swift */; };
 		26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
-		26FF9918201E7D1700E405A1 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9917201E7D1700E405A1 /* WindowSettings.swift */; };
 		26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9920201F421100E405A1 /* AppDelegate.swift */; };
 		26FF9923201F421100E405A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9922201F421100E405A1 /* ViewController.swift */; };
 		26FF9926201F421100E405A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26FF9924201F421100E405A1 /* Main.storyboard */; };
@@ -33,18 +31,18 @@
 /* Begin PBXFileReference section */
 		26784B5C201F59E6005B7562 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		26910DBA1F60B12100A82AF2 /* Countdowner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdowner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		26910DBD1F60B12100A82AF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26910DBF1F60B12100A82AF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26910DC11F60B12100A82AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		26910DC41F60B12100A82AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26910DC61F60B12100A82AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2698AB602032584400E3D7D3 /* MinuteSecondPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteSecondPickerView.swift; sourceTree = "<group>"; };
+		2698AB662039D64A00E3D7D3 /* OnlyIntegerValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlyIntegerValueFormatter.swift; path = Model/OnlyIntegerValueFormatter.swift; sourceTree = "<group>"; };
+		2698AB672039D64A00E3D7D3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Model/AppDelegate.swift; sourceTree = "<group>"; };
+		2698AB682039D64A00E3D7D3 /* WindowSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WindowSettings.swift; path = Model/WindowSettings.swift; sourceTree = "<group>"; };
+		2698AB6C2039D65700E3D7D3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controller/ViewController.swift; sourceTree = "<group>"; };
+		2698AB702039D67400E3D7D3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownerServiceManager.swift; sourceTree = "<group>"; };
 		26B6657B20238B9500DF52FC /* Countdowner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Countdowner.entitlements; sourceTree = "<group>"; };
-		26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyIntegerValueFormatter.swift; sourceTree = "<group>"; };
 		26FF9913201E085700E405A1 /* Countdowner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdowner.swift; sourceTree = "<group>"; };
 		26FF9915201E7D0600E405A1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		26FF9917201E7D1700E405A1 /* WindowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSettings.swift; sourceTree = "<group>"; };
 		26FF991E201F421100E405A1 /* Countdowner iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Countdowner iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26FF9920201F421100E405A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26FF9922201F421100E405A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,7 @@
 		26910DCC1F60B2EA00A82AF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				26910DC31F60B12100A82AF2 /* Main.storyboard */,
+				2698AB702039D67400E3D7D3 /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -118,7 +116,7 @@
 		26910DCE1F60B30700A82AF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				26910DBF1F60B12100A82AF2 /* ViewController.swift */,
+				2698AB6C2039D65700E3D7D3 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -126,9 +124,9 @@
 		26910DCF1F60B31300A82AF2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				26910DBD1F60B12100A82AF2 /* AppDelegate.swift */,
-				26C94247201FCD4C006055BE /* OnlyIntegerValueFormatter.swift */,
-				26FF9917201E7D1700E405A1 /* WindowSettings.swift */,
+				2698AB672039D64A00E3D7D3 /* AppDelegate.swift */,
+				2698AB662039D64A00E3D7D3 /* OnlyIntegerValueFormatter.swift */,
+				2698AB682039D64A00E3D7D3 /* WindowSettings.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -263,7 +261,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */,
-				26910DC51F60B12100A82AF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,13 +310,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26910DC01F60B12100A82AF2 /* ViewController.swift in Sources */,
-				26FF9918201E7D1700E405A1 /* WindowSettings.swift in Sources */,
-				26C94248201FCD4C006055BE /* OnlyIntegerValueFormatter.swift in Sources */,
-				26910DBE1F60B12100A82AF2 /* AppDelegate.swift in Sources */,
+				2698AB692039D64B00E3D7D3 /* OnlyIntegerValueFormatter.swift in Sources */,
 				26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */,
+				2698AB6D2039D65700E3D7D3 /* ViewController.swift in Sources */,
 				26C94246201FCC10006055BE /* CGColor.swift in Sources */,
 				26FF9914201E085700E405A1 /* Countdowner.swift in Sources */,
+				2698AB6A2039D64B00E3D7D3 /* AppDelegate.swift in Sources */,
+				2698AB6B2039D64B00E3D7D3 /* WindowSettings.swift in Sources */,
 				26B66579202385CD00DF52FC /* CountdownerServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +325,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26784B58201F5828005B7562 /* WindowSettings.swift in Sources */,
 				26FF9923201F421100E405A1 /* ViewController.swift in Sources */,
 				26C94245201FCBE3006055BE /* Preferences.swift in Sources */,
 				26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */,
@@ -342,14 +338,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		26910DC31F60B12100A82AF2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				26910DC41F60B12100A82AF2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		26FF9924201F421100E405A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

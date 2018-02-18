@@ -28,4 +28,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         window.setFrame(NSRect(origin: windowOrigin, size: windowSize), display: true)
     }
+
 }

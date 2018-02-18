@@ -24,7 +24,7 @@ class Countdowner {
     init(counter: Int) {
         self.setCountdownValue(counter: counter)
     }
-    
+
     func update(counter: Int) -> (window: WindowSettings, color: CGColor, minutes: Int, seconds: Int) {
         let minutes = counter / 60
         let seconds = counter % 60

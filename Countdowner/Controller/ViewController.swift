@@ -12,9 +12,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var countDownLabel: NSTextField!
     @IBOutlet weak var settingsButton: NSButton!
     @IBOutlet weak var connectedPeers: NSTextField!
+
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let countdownerService = CountdownerServiceManager()
-    
+
     var addedObserver = false
     var counter = 0
     var countdownTimer: Timer?

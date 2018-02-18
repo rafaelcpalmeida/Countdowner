@@ -17,7 +17,7 @@ struct Preferences {
     var counterTime: TimeInterval {
         get {
             let savedTime = UserDefaults.standard.double(forKey: "CountdownerCustomTime")
-            
+
             if savedTime > 0 {
                 return savedTime
             }

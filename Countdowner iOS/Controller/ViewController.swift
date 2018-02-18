@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var countDownLabel: UILabel!
-    
+
     let countdownerService = CountdownerServiceManager()
-    
+
     var counter = 0
     var countdownTimer: Timer?
     var countdowner: Countdowner?

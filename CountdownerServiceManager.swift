@@ -105,7 +105,7 @@ extension CountdownerServiceManager : MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         // NSLog("%@", "lostPeer: \(peerID)")
     }
-    
+
 }
 
 extension CountdownerServiceManager : MCSessionDelegate {
@@ -113,13 +113,13 @@ extension CountdownerServiceManager : MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         // NSLog("%@", "peer \(peerID) didChangeState: \(state)")
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
-            session.connectedPeers.map{$0.displayName})
+            session.connectedPeers.map {$0.displayName} )
     }
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         // NSLog("%@", "didReceiveData: \(data)")
         if let action = Action(rawValue: String(data: data, encoding: .utf8)!) {
-            //self.delegate?.actionReceived(manager: self, action: action, counter: <#Int#>)
+            // self.delegate?.actionReceived(manager: self, action: action, counter: <#Int#>)
             self.delegate?.actionReceived(manager: self, action: action)
         }
     }
