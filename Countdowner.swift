@@ -20,7 +20,7 @@ class Countdowner {
     var danger: Double = 0
     var color: CGColor?
     var window: WindowSettings?
-    
+
     init(counter: Int) {
         self.setCountdownValue(counter: counter)
     }
@@ -62,4 +62,5 @@ class Countdowner {
         self.alert = Double(counter) * 0.33
         self.danger = Double(counter) * 0.17
     }
+
 }

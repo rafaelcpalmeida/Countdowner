@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var countDownLabel: UILabel!
     
     let countdownerService = CountdownerServiceManager()
@@ -145,6 +144,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : CountdownerServiceManagerDelegate {
+    
     func connectedDevicesChanged(manager: CountdownerServiceManager, connectedDevices: [String]) {
         //
     }

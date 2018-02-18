@@ -13,7 +13,7 @@
 #endif
 
 struct Preferences {
-    
+
     var counterTime: TimeInterval {
         get {
             let savedTime = UserDefaults.standard.double(forKey: "CountdownerCustomTime")
@@ -28,5 +28,5 @@ struct Preferences {
             UserDefaults.standard.set(newValue, forKey: "CountdownerCustomTime")
         }
     }
-    
+
 }

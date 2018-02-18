@@ -9,6 +9,7 @@
 import Cocoa
 
 class OnlyIntegerValueFormatter: NumberFormatter {
+    
     override func isPartialStringValid(_ partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
         
         // Ability to reset your field (otherwise you can't delete the content)

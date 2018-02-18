@@ -57,7 +57,7 @@ class CountdownerServiceManager: NSObject {
     }
 
     func send(action: Action) {
-        //NSLog("%@", "action: \(action) to \(session.connectedPeers.count) peers")
+        // NSLog("%@", "action: \(action) to \(session.connectedPeers.count) peers")
 
         if session.connectedPeers.count > 0 {
             do {
@@ -80,11 +80,11 @@ class CountdownerServiceManager: NSObject {
 extension CountdownerServiceManager : MCNearbyServiceAdvertiserDelegate {
 
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        //NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
+        // NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
     }
 
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        //NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
+        // NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
         invitationHandler(true, self.session)
     }
 
@@ -93,17 +93,17 @@ extension CountdownerServiceManager : MCNearbyServiceAdvertiserDelegate {
 extension CountdownerServiceManager : MCNearbyServiceBrowserDelegate {
 
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        //NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
+        // NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
     }
 
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        //NSLog("%@", "foundPeer: \(peerID)")
-        //NSLog("%@", "invitePeer: \(peerID)")
+        // NSLog("%@", "foundPeer: \(peerID)")
+        // NSLog("%@", "invitePeer: \(peerID)")
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
     }
 
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        //NSLog("%@", "lostPeer: \(peerID)")
+        // NSLog("%@", "lostPeer: \(peerID)")
     }
     
 }
@@ -111,13 +111,13 @@ extension CountdownerServiceManager : MCNearbyServiceBrowserDelegate {
 extension CountdownerServiceManager : MCSessionDelegate {
 
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        //NSLog("%@", "peer \(peerID) didChangeState: \(state)")
+        // NSLog("%@", "peer \(peerID) didChangeState: \(state)")
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
             session.connectedPeers.map{$0.displayName})
     }
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        //NSLog("%@", "didReceiveData: \(data)")
+        // NSLog("%@", "didReceiveData: \(data)")
         if let action = Action(rawValue: String(data: data, encoding: .utf8)!) {
             //self.delegate?.actionReceived(manager: self, action: action, counter: <#Int#>)
             self.delegate?.actionReceived(manager: self, action: action)
@@ -125,15 +125,15 @@ extension CountdownerServiceManager : MCSessionDelegate {
     }
 
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        //NSLog("%@", "didReceiveStream")
+        // NSLog("%@", "didReceiveStream")
     }
 
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        //NSLog("%@", "didStartReceivingResourceWithName")
+        // NSLog("%@", "didStartReceivingResourceWithName")
     }
 
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        //NSLog("%@", "didFinishReceivingResourceWithName")
+        // NSLog("%@", "didFinishReceivingResourceWithName")
     }
 
 }
