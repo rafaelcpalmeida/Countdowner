@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var countdowner: Countdowner?
     var runningTimer = false
     var preferences = Preferences()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,28 +32,28 @@ class ViewController: UIViewController {
             
         UIApplication.shared.isIdleTimerDisabled = true
     }
-    
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
-    
+
     override var shouldAutorotate: Bool {
         return true
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func tapRecognizer(_ sender: Any) {
         self.handleTimer()
     }
-    
+
     @IBAction func doubleTouchTapRecognizer(_ sender: Any) {
         self.resetTimer()
     }
-    
+
     @IBAction func settingsButton(_ sender: Any) {
         let views = view.subviews.filter { $0 is MinuteSecondPickerView }
         
@@ -80,14 +80,13 @@ class ViewController: UIViewController {
             self.view.addSubview(minutesSecondsPicker)
         }
     }
-    
-    
+
     func setTime() {
         guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: counter) else { fatalError() }
         
         self.countDownLabel.text = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
-    
+
     func handleTimer() {
         if !self.runningTimer {
             if self.counter == 0 {
@@ -100,19 +99,19 @@ class ViewController: UIViewController {
             self.runningTimer = false
         }
     }
-    
+
     func setDefaultCounterValue() {
         self.counter = Int(preferences.counterTime)
     }
-    
+
     func startTimer() {
         self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
-    
+
     func pauseTimer() {
         self.countdownTimer?.invalidate()
     }
-    
+
     func resetTimer() {
         self.handleTimer()
         
@@ -122,7 +121,7 @@ class ViewController: UIViewController {
         
         self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
-    
+
     @objc func update() {
         if counter > 0 {
             counter -= 1
@@ -135,7 +134,7 @@ class ViewController: UIViewController {
             self.runningTimer = false
         }
     }
-    
+
     func updateWindow(color: CGColor, minutes: Int, seconds: Int) {
         self.view.layer.backgroundColor = color
         self.countDownLabel.text = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
@@ -144,11 +143,11 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : CountdownerServiceManagerDelegate {
-    
+
     func connectedDevicesChanged(manager: CountdownerServiceManager, connectedDevices: [String]) {
         //
     }
-    
+
     func actionReceived(manager: CountdownerServiceManager, action: Action) {
         OperationQueue.main.addOperation {
             switch action {
@@ -170,5 +169,5 @@ extension ViewController : CountdownerServiceManagerDelegate {
             }
         }
     }
-    
+
 }

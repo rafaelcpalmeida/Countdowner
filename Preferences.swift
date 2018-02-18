@@ -21,7 +21,7 @@ struct Preferences {
             if savedTime > 0 {
                 return savedTime
             }
-            
+
             return 1800
         }
         set {

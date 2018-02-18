@@ -22,8 +22,7 @@ class ViewController: NSViewController {
     var countdowner: Countdowner?
     var runningTimer = false
     var preferences = Preferences()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,27 +40,27 @@ class ViewController: NSViewController {
             self.addObserver(self, forKeyPath: "view.window", options: [.new, .initial], context: nil)
         }
     }
-    
+
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let window = self.view.window {
             window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.overlayWindow)))
         }
     }
-    
+
     deinit {
         if addedObserver {
             self.removeObserver(self, forKeyPath: "view.window")
         }
     }
-    
+
     override func mouseDown(with theEvent: NSEvent) {
         self.handleTimer()
     }
-    
+
     override func rightMouseDown(with theEvent: NSEvent) {
         self.resetTimer()
     }
-    
+
     @IBAction func settingsButton(_ sender: NSButton) {
         let alert = NSAlert()
         let secondsField = NSTextField(frame: NSRect(x: 0, y: 0, width: 300, height: 24))
@@ -84,13 +83,13 @@ class ViewController: NSViewController {
             self.counter = seconds
         }
     }
-    
+
     func setTime() {
         guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: counter) else { fatalError() }
         
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
-    
+
     func handleTimer() {
         if !self.runningTimer {
             if self.counter == 0 {
@@ -103,23 +102,23 @@ class ViewController: NSViewController {
             self.runningTimer = false
         }
     }
-    
+
     func setDefaultCounterValue() {
         self.counter = Int(preferences.counterTime)
     }
-    
+
     func startTimer() {
         self.countdownerService.send(action: .start)
         
         self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
-    
+
     func pauseTimer() {
         self.countdownerService.send(action: .pause)
         
         self.countdownTimer?.invalidate()
     }
-    
+
     func resetTimer() {
         self.countdownerService.send(action: .reset)
         
@@ -131,7 +130,7 @@ class ViewController: NSViewController {
         
         self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
-    
+
     @objc func update() {
         if counter > 0 {
             counter -= 1
@@ -139,31 +138,31 @@ class ViewController: NSViewController {
             guard let countdownerDetails = self.countdowner?.update(counter: counter) else { fatalError() }
             
             self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
-            
         } else {
             self.pauseTimer()
             self.runningTimer = false
         }
     }
-    
+
     func updateWindow(color: CGColor, width: Int, height: Int, x: Int, y: Int, minutes: Int, seconds: Int) {
         self.view.layer?.backgroundColor = color
         appDelegate.setWindow(width: width, height: height, x: x, y: y)
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
+    
 }
 
 extension ViewController : CountdownerServiceManagerDelegate {
-    
+
     func connectedDevicesChanged(manager: CountdownerServiceManager, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
             self.connectedPeers.stringValue = "Connected devices: \(connectedDevices.count)"
         }
     }
-    
+
     func actionReceived(manager : CountdownerServiceManager, action: Action) {
         OperationQueue.main.addOperation {
         }
     }
-    
+
 }
