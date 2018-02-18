@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     
     let countdownerService = CountdownerServiceManager()
     
-    var counter: Int = 0
-    var countdownTimer: Timer? = nil
-    var countdowner: Countdowner? = nil
-    var runningTimer: Bool = false
+    var counter = 0
+    var countdownTimer: Timer?
+    var countdowner: Countdowner?
+    var runningTimer = false
     var preferences = Preferences()
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
         
-        self.view.layer.backgroundColor = CGColor.green
+        self.view.layer.backgroundColor = .green
             
         UIApplication.shared.isIdleTimerDisabled = true
     }
@@ -56,12 +56,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func settingsButton(_ sender: Any) {
-        let views = view.subviews.filter({$0 is MinuteSecondPickerView})
+        let views = view.subviews.filter { $0 is MinuteSecondPickerView }
         
         if views.count > 0 {
-            for view in views {
-                view.removeFromSuperview()
-            }
+            views.forEach { $0.removeFromSuperview() }
         } else {
             let minutesSecondsPicker = MinuteSecondPickerView()
             
@@ -70,11 +68,11 @@ class ViewController: UIViewController {
             
             minutesSecondsPicker.center = CGPoint(x: self.view.frame.width / 2, y: (self.view.frame.height - minutesSecondsPicker.frame.height) + (minutesSecondsPicker.frame.size.height / 2))
             
-            minutesSecondsPicker.onDateSelected = { (minutes: Int, seconds: Int) in
+            minutesSecondsPicker.onDateSelected = { minutes, seconds in
                 let seconds = (minutes * 60) + seconds
                 
                 self.preferences.counterTime = Double(seconds)
-                self.countdowner!.setCountdownValue(counter: seconds)
+                self.countdowner?.setCountdownValue(counter: seconds)
                 
                 self.counter = seconds
                 self.setTime()
@@ -86,7 +84,7 @@ class ViewController: UIViewController {
     
     
     func setTime() {
-        let countdownerDetails = self.countdowner!.secondsToTime(seconds: counter)
+        guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: counter) else { fatalError() }
         
         self.countDownLabel.text = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
@@ -109,7 +107,7 @@ class ViewController: UIViewController {
     }
     
     func startTimer() {
-        self.countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {
@@ -121,7 +119,7 @@ class ViewController: UIViewController {
         
         self.setDefaultCounterValue()
         
-        let countdownerDetails = self.countdowner!.defaultState(counter: counter)
+        guard let countdownerDetails = self.countdowner?.defaultState(counter: counter) else { fatalError() }
         
         self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
@@ -130,7 +128,7 @@ class ViewController: UIViewController {
         if counter > 0 {
             counter -= 1
             
-            let countdownerDetails = self.countdowner!.update(counter: counter)
+            guard let countdownerDetails = self.countdowner?.update(counter: counter) else { fatalError() }
             
             self.updateWindow(color: countdownerDetails.color, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
         } else {
@@ -151,7 +149,7 @@ extension ViewController : CountdownerServiceManagerDelegate {
         //
     }
     
-    func actionReceived(manager : CountdownerServiceManager, action: ACTION) {
+    func actionReceived(manager: CountdownerServiceManager, action: Action) {
         OperationQueue.main.addOperation {
             switch action {
             case .start:

@@ -18,10 +18,8 @@ class OnlyIntegerValueFormatter: NumberFormatter {
         }
         
         // Limit the number of seconds to 3600 (1 hour) as the program is only prepared to countdown minutes
-        if let number = Int(partialString) {
-            if number > 3600 {
-                return false
-            }
+        if let number = Int(partialString), number > 3600 {
+            return false
         }
         
         // Actual check

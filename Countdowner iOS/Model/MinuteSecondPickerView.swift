@@ -15,12 +15,12 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     
     let preferences = Preferences()
     
-    var minutes: [Int]!
-    var seconds: [Int]!
+    var minutes: [Int] = Array(1...60)
+    var seconds: [Int] = Array(0...60)
     
-    var minute: Int = 0
+    var minute = 0
     
-    var second: Int = 0
+    var second = 0
     
     var onDateSelected: ((_ month: Int, _ year: Int) -> Void)?
     
@@ -35,12 +35,6 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func commonSetup() {
-        // population seconds
-        self.seconds = Array(0...60)
-        
-        // population minutes
-        self.minutes = Array(1...60)
-        
         self.delegate = self
         self.dataSource = self
         
@@ -58,9 +52,9 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         switch component {
         case 0:
-            return NSAttributedString(string: String(format: "%02d", minutes[row]), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            return NSAttributedString(string: String(format: "%02d", minutes[row]), attributes: [.foregroundColor: UIColor.white])
         case 1:
-            return NSAttributedString(string: String(format: "%02d", seconds[row]), attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            return NSAttributedString(string: String(format: "%02d", seconds[row]), attributes: [.foregroundColor: UIColor.white])
         default:
             return nil
         }
@@ -78,7 +72,7 @@ class MinuteSecondPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let minute = self.selectedRow(inComponent: 0)+1
+        let minute = self.selectedRow(inComponent: 0) + 1
         let second = seconds[self.selectedRow(inComponent: 1)]
         
         if let block = onDateSelected {

@@ -7,15 +7,8 @@
 //
 
 struct WindowSettings {
-    var width: Int = 0
-    var height: Int = 0
-    var x: Int = 0
-    var y: Int = 0
-    
-    init(width: Int, height: Int, x: Int, y: Int) {
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
-    }
+    var width = 0
+    var height = 0
+    var x = 0
+    var y = 0
 }
