@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26784B5D201F59E6005B7562 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
+		268667DE2039EE79005A5D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268667DC2039EE79005A5D5C /* Main.storyboard */; };
 		26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC11F60B12100A82AF2 /* Assets.xcassets */; };
 		2698AB612032584400E3D7D3 /* MinuteSecondPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB602032584400E3D7D3 /* MinuteSecondPickerView.swift */; };
 		2698AB692039D64B00E3D7D3 /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB662039D64A00E3D7D3 /* OnlyIntegerValueFormatter.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		26784B5C201F59E6005B7562 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
+		268667DD2039EE79005A5D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = View/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26910DBA1F60B12100A82AF2 /* Countdowner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdowner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26910DC11F60B12100A82AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26910DC61F60B12100A82AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,7 +40,6 @@
 		2698AB672039D64A00E3D7D3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Model/AppDelegate.swift; sourceTree = "<group>"; };
 		2698AB682039D64A00E3D7D3 /* WindowSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WindowSettings.swift; path = Model/WindowSettings.swift; sourceTree = "<group>"; };
 		2698AB6C2039D65700E3D7D3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controller/ViewController.swift; sourceTree = "<group>"; };
-		2698AB702039D67400E3D7D3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownerServiceManager.swift; sourceTree = "<group>"; };
 		26B6657B20238B9500DF52FC /* Countdowner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Countdowner.entitlements; sourceTree = "<group>"; };
 		26FF9913201E085700E405A1 /* Countdowner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdowner.swift; sourceTree = "<group>"; };
@@ -108,7 +109,7 @@
 		26910DCC1F60B2EA00A82AF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2698AB702039D67400E3D7D3 /* Main.storyboard */,
+				268667DC2039EE79005A5D5C /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -261,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */,
+				268667DE2039EE79005A5D5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +340,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		268667DC2039EE79005A5D5C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				268667DD2039EE79005A5D5C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		26FF9924201F421100E405A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
