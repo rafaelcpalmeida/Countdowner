@@ -19,6 +19,7 @@
 		26B6657A202386EE00DF52FC /* CountdownerServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B66578202385CC00DF52FC /* CountdownerServiceManager.swift */; };
 		26C94245201FCBE3006055BE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
 		26C94246201FCC10006055BE /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
+		26CBF938203E2B7300CC2232 /* WindowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB682039D64A00E3D7D3 /* WindowSettings.swift */; };
 		26FF9914201E085700E405A1 /* Countdowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9913201E085700E405A1 /* Countdowner.swift */; };
 		26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9915201E7D0600E405A1 /* Preferences.swift */; };
 		26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9920201F421100E405A1 /* AppDelegate.swift */; };
@@ -327,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CBF938203E2B7300CC2232 /* WindowSettings.swift in Sources */,
 				26FF9923201F421100E405A1 /* ViewController.swift in Sources */,
 				26C94245201FCBE3006055BE /* Preferences.swift in Sources */,
 				26FF9921201F421100E405A1 /* AppDelegate.swift in Sources */,
