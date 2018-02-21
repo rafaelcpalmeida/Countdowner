@@ -109,8 +109,13 @@ class ViewController: NSViewController {
 
     func startTimer() {
         self.countdownerService.send(action: .start)
-
-        self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        
+        DispatchQueue.global(qos: .background).async(execute: {() -> Void in
+            self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+            
+            RunLoop.current.add(self.countdownTimer!, forMode: .defaultRunLoopMode)
+            RunLoop.current.run()
+        })
     }
 
     func pauseTimer() {
@@ -137,6 +142,7 @@ class ViewController: NSViewController {
 
             guard let countdownerDetails = self.countdowner?.update(counter: counter) else { fatalError() }
 
+            
             self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
         } else {
             self.pauseTimer()
@@ -145,9 +151,11 @@ class ViewController: NSViewController {
     }
 
     func updateWindow(color: CGColor, width: Int, height: Int, x: Int, y: Int, minutes: Int, seconds: Int) {
-        self.view.layer?.backgroundColor = color
-        appDelegate.setWindow(width: width, height: height, x: x, y: y)
-        self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
+        DispatchQueue.main.async {
+            self.view.layer?.backgroundColor = color
+            self.appDelegate.setWindow(width: width, height: height, x: x, y: y)
+            self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
+        }
     }
 
 }
