@@ -31,7 +31,7 @@ class ViewController: NSViewController {
         self.setDefaultCounterValue()
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
-        self.view.layer?.backgroundColor = .green
+        self.view.layer?.backgroundColor = .gray
 
         if let window = self.view.window {
             window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.floatingWindow)))
@@ -116,12 +116,16 @@ class ViewController: NSViewController {
             RunLoop.current.add(self.countdownTimer!, forMode: .defaultRunLoopMode)
             RunLoop.current.run()
         })
+        
+        self.view.layer?.backgroundColor = .green
     }
 
     func pauseTimer() {
         self.countdownerService.send(action: .pause)
 
         self.countdownTimer?.invalidate()
+        
+        self.view.layer?.backgroundColor = .gray
     }
 
     func resetTimer() {

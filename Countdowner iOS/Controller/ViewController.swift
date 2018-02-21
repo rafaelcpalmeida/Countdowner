@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         self.countdowner = Countdowner(counter: counter)
         self.setTime()
 
-        self.view.layer.backgroundColor = .green
+        self.view.layer.backgroundColor = .gray
 
         UIApplication.shared.isIdleTimerDisabled = true
     }
@@ -106,10 +106,14 @@ class ViewController: UIViewController {
 
     func startTimer() {
         self.countdownTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        
+        self.view.layer.backgroundColor = .green
     }
 
     func pauseTimer() {
         self.countdownTimer?.invalidate()
+        
+        self.view.layer.backgroundColor = .gray
     }
 
     func resetTimer() {
