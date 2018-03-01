@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     let countdownerService = CountdownerServiceManager()
 
     var addedObserver = false
-    var counter = 0
+    var remaininTimeInSeconds = 0
     var countdownTimer: Timer?
     var countdowner: Countdowner?
     var runningTimer = false
@@ -34,7 +34,7 @@ class ViewController: NSViewController {
         self.countdownerService.delegate = self
 
         self.setDefaultCounterValue()
-        self.countdowner = Countdowner(counter: counter)
+        self.countdowner = Countdowner(counter: remaininTimeInSeconds)
         self.setTime()
         self.view.layer?.backgroundColor = .gray
 
@@ -73,14 +73,14 @@ class ViewController: NSViewController {
     }
 
     func setTime() {
-        guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: counter) else { fatalError() }
+        guard let countdownerDetails = self.countdowner?.secondsToTime(seconds: remaininTimeInSeconds) else { fatalError() }
 
         self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", countdownerDetails.timeInMinutes)):\(String(format: "%02d", countdownerDetails.timeInSeconds))")
     }
 
     func handleTimer() {
         if !self.runningTimer {
-            if self.counter == 0 {
+            if self.remaininTimeInSeconds == 0 {
                 self.resetTimer()
             }
             startTimer()
@@ -92,7 +92,7 @@ class ViewController: NSViewController {
     }
 
     func setDefaultCounterValue() {
-        self.counter = Int(preferences.counterTime)
+        self.remaininTimeInSeconds = Int(preferences.counterTime)
     }
 
     func startTimer() {
@@ -123,16 +123,16 @@ class ViewController: NSViewController {
 
         self.setDefaultCounterValue()
 
-        let countdownerDetails = self.countdowner!.defaultState(counter: counter)
+        let countdownerDetails = self.countdowner!.defaultState(counter: remaininTimeInSeconds)
 
         self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
     }
 
     @objc func update() {
-        if counter > 0 {
-            counter -= 1
+        if remaininTimeInSeconds > 0 {
+            remaininTimeInSeconds -= 1
 
-            guard let countdownerDetails = self.countdowner?.update(counter: counter) else { fatalError() }
+            guard let countdownerDetails = self.countdowner?.update(counter: remaininTimeInSeconds) else { fatalError() }
 
             
             self.updateWindow(color: countdownerDetails.color, width: countdownerDetails.window.width, height: countdownerDetails.window.height, x: countdownerDetails.window.x, y: countdownerDetails.window.y, minutes: countdownerDetails.minutes, seconds: countdownerDetails.seconds)
@@ -157,8 +157,8 @@ class ViewController: NSViewController {
     }
     
     @objc func setTimerValue() {
-        self.counter = Int(self.preferences.counterTime)
-        self.countdowner?.setCountdownValue(counter: counter)
+        self.remaininTimeInSeconds = Int(self.preferences.counterTime)
+        self.countdowner?.setCountdownValue(counter: remaininTimeInSeconds)
         self.setTime()
     }
 
