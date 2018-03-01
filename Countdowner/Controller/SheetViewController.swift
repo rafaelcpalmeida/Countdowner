@@ -18,7 +18,6 @@ class SheetViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         timeStepper.cell?.integerValue = Int(preferences.counterTime)
         timeDisplay.stringValue = convertTime(seconds: (timeStepper.cell?.integerValue)!)
     }
@@ -30,6 +29,7 @@ class SheetViewController: NSViewController {
     
     @IBAction func setButton(_ sender: NSButton) {
         self.preferences.counterTime = Double((timeStepper.cell?.integerValue)!)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setTimerValue"), object: nil)
         self.dismiss(true)
     }
     
@@ -40,4 +40,5 @@ class SheetViewController: NSViewController {
     func convertTime(seconds: Int) -> String {
         return String(describing: "\(String(format: "%02d", seconds / 60)):\(String(format: "%02d", seconds % 60))")
     }
+    
 }

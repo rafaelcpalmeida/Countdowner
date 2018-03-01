@@ -94,6 +94,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="10"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="setButton:" target="VZe-qs-w2M" id="jzR-S8-asB"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nir-iw-PcC">
                                 <rect key="frame" x="14" y="6" width="64" height="32"/>

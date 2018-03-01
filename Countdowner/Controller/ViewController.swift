@@ -44,6 +44,8 @@ class ViewController: NSViewController {
             addedObserver = true
             self.addObserver(self, forKeyPath: "view.window", options: [.new, .initial], context: nil)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setTimerValue), name: NSNotification.Name(rawValue: "setTimerValue"), object: nil)
     }
 
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -68,24 +70,6 @@ class ViewController: NSViewController {
 
     @IBAction func settingsButton(_ sender: NSButton) {
         self.presentViewControllerAsSheet(sheetViewController)
-        /*let alert = NSAlert()
-        let secondsField = NSTextField(frame: NSRect(x: 0, y: 0, width: 300, height: 24))
-
-        secondsField.placeholderString = NSLocalizedString("30 minutes equals to 1800 seconds", comment: "")
-        secondsField.formatter = OnlyIntegerValueFormatter()
-
-        alert.messageText = NSLocalizedString("Please insert the value, in seconds, of the timer:", comment: "")
-        alert.alertStyle = .informational
-        alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
-        alert.accessoryView = secondsField
-
-        if alert.runModal() == .alertFirstButtonReturn,
-            let seconds = Int(secondsField.stringValue),
-            seconds > 0 {
-
-            self.counter = seconds
-        }*/
     }
 
     func setTime() {
@@ -166,9 +150,15 @@ class ViewController: NSViewController {
         }
     }
     
-    func setCoutdownerTime(seconds: Int) {
+    @objc func setCoutdownerTime(seconds: Int) {
         self.preferences.counterTime = Double(seconds)
         self.countdowner?.setCountdownValue(counter: seconds)
+        self.setTime()
+    }
+    
+    @objc func setTimerValue() {
+        self.counter = Int(self.preferences.counterTime)
+        self.countdowner?.setCountdownValue(counter: counter)
         self.setTime()
     }
 
