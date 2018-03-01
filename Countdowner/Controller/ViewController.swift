@@ -114,7 +114,9 @@ class ViewController: NSViewController {
 
             self.countdownTimer?.invalidate()
             
-            self.view.layer?.backgroundColor = .gray
+            if self.remaininTimeInSeconds > 0 {
+                self.view.layer?.backgroundColor = .gray
+            }
         }
     }
 
