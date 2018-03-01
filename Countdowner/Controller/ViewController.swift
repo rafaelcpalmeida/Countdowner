@@ -109,11 +109,13 @@ class ViewController: NSViewController {
     }
 
     func pauseTimer() {
-        self.countdownerService.send(action: .pause)
+        DispatchQueue.main.async {
+            self.countdownerService.send(action: .pause)
 
-        self.countdownTimer?.invalidate()
-        
-        self.view.layer?.backgroundColor = .gray
+            self.countdownTimer?.invalidate()
+            
+            self.view.layer?.backgroundColor = .gray
+        }
     }
 
     func resetTimer() {
