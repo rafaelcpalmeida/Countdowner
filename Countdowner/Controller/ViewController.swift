@@ -22,6 +22,11 @@ class ViewController: NSViewController {
     var countdowner: Countdowner?
     var runningTimer = false
     var preferences = Preferences()
+    
+    lazy var sheetViewController: NSViewController = {
+        return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SheetViewController"))
+            as! NSViewController
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +67,8 @@ class ViewController: NSViewController {
     }
 
     @IBAction func settingsButton(_ sender: NSButton) {
-        let alert = NSAlert()
+        self.presentViewControllerAsSheet(sheetViewController)
+        /*let alert = NSAlert()
         let secondsField = NSTextField(frame: NSRect(x: 0, y: 0, width: 300, height: 24))
 
         secondsField.placeholderString = NSLocalizedString("30 minutes equals to 1800 seconds", comment: "")
@@ -81,7 +87,7 @@ class ViewController: NSViewController {
             self.countdowner?.setCountdownValue(counter: seconds)
 
             self.counter = seconds
-        }
+        }*/
     }
 
     func setTime() {

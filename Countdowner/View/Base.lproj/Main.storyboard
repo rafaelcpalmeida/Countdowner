@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,9 +72,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="DkB-pO-O1h">
-                                <rect key="frame" x="9" y="14" width="182" height="72"/>
+                                <rect key="frame" x="6" y="8" width="189" height="85"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="30:00" id="dG7-dj-LYv">
-                                    <font key="font" metaFont="systemBold" size="60"/>
+                                    <font key="font" size="60" name="Menlo-Regular"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -99,6 +100,7 @@
                             </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7af-Kp-TMb" secondAttribute="trailing" constant="20" symbolic="YES" id="4uy-el-lMO"/>
                             <constraint firstItem="DkB-pO-O1h" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="7VW-t7-AC8"/>
                             <constraint firstItem="7af-Kp-TMb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="11" id="pDQ-4P-dSQ"/>
                             <constraint firstItem="7af-Kp-TMb" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="6" id="szQ-5q-QHs"/>
