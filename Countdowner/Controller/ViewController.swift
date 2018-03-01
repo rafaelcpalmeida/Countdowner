@@ -83,8 +83,6 @@ class ViewController: NSViewController {
         if alert.runModal() == .alertFirstButtonReturn,
             let seconds = Int(secondsField.stringValue),
             seconds > 0 {
-            self.preferences.counterTime = Double(seconds)
-            self.countdowner?.setCountdownValue(counter: seconds)
 
             self.counter = seconds
         }*/
@@ -166,6 +164,12 @@ class ViewController: NSViewController {
             self.appDelegate.setWindow(width: width, height: height, x: x, y: y)
             self.countDownLabel.stringValue = String(describing: "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
         }
+    }
+    
+    func setCoutdownerTime(seconds: Int) {
+        self.preferences.counterTime = Double(seconds)
+        self.countdowner?.setCountdownValue(counter: seconds)
+        self.setTime()
     }
 
 }

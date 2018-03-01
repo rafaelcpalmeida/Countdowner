@@ -62,6 +62,64 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Sheet View Controller-->
+        <scene sceneID="wcC-Od-1vF">
+            <objects>
+                <viewController storyboardIdentifier="SheetViewController" id="VZe-qs-w2M" customClass="SheetViewController" customModule="Countdowner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gFi-Yo-QMR">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="blv-g8-nQ4">
+                                <rect key="frame" x="114" y="46" width="19" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="3600" doubleValue="1800" valueWraps="YES" id="8Yh-J1-0xA"/>
+                                <connections>
+                                    <action selector="timeChanged:" target="VZe-qs-w2M" id="nDf-c3-F1J"/>
+                                </connections>
+                            </stepper>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i3z-j2-GqZ">
+                                <rect key="frame" x="20" y="48" width="89" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="30:00" drawsBackground="YES" id="J3d-a6-uuT">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Pn-6c-Wzg">
+                                <rect key="frame" x="73" y="6" width="63" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U1D-pn-jLo">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nir-iw-PcC">
+                                <rect key="frame" x="14" y="6" width="64" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gI8-Kr-J4p">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelButton:" target="VZe-qs-w2M" id="fhc-5b-dT7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="timeDisplay" destination="i3z-j2-GqZ" id="43D-4u-DQK"/>
+                        <outlet property="timeStepper" destination="blv-g8-nQ4" id="mK7-EN-Q1x"/>
+                    </connections>
+                </viewController>
+                <customObject id="SXy-dm-Tdg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-304" y="681"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>

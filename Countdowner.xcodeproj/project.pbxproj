@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		26784B5D201F59E6005B7562 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26784B5C201F59E6005B7562 /* CGColor.swift */; };
 		268667DE2039EE79005A5D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268667DC2039EE79005A5D5C /* Main.storyboard */; };
+		268667E920478534005A5D5C /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268667E820478534005A5D5C /* SheetViewController.swift */; };
 		26910DC21F60B12100A82AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26910DC11F60B12100A82AF2 /* Assets.xcassets */; };
 		2698AB612032584400E3D7D3 /* MinuteSecondPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB602032584400E3D7D3 /* MinuteSecondPickerView.swift */; };
 		2698AB692039D64B00E3D7D3 /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698AB662039D64A00E3D7D3 /* OnlyIntegerValueFormatter.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		26784B5C201F59E6005B7562 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		268667DD2039EE79005A5D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = View/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		268667E820478534005A5D5C /* SheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SheetViewController.swift; path = Controller/SheetViewController.swift; sourceTree = "<group>"; };
 		26910DBA1F60B12100A82AF2 /* Countdowner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdowner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26910DC11F60B12100A82AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26910DC61F60B12100A82AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		26910DCE1F60B30700A82AF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				268667E820478534005A5D5C /* SheetViewController.swift */,
 				2698AB6C2039D65700E3D7D3 /* ViewController.swift */,
 			);
 			name = Controller;
@@ -316,6 +319,7 @@
 				2698AB692039D64B00E3D7D3 /* OnlyIntegerValueFormatter.swift in Sources */,
 				26FF9916201E7D0600E405A1 /* Preferences.swift in Sources */,
 				2698AB6D2039D65700E3D7D3 /* ViewController.swift in Sources */,
+				268667E920478534005A5D5C /* SheetViewController.swift in Sources */,
 				26C94246201FCC10006055BE /* CGColor.swift in Sources */,
 				26FF9914201E085700E405A1 /* Countdowner.swift in Sources */,
 				2698AB6A2039D64B00E3D7D3 /* AppDelegate.swift in Sources */,
