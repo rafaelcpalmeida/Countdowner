@@ -29,9 +29,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnP-Rd-Rai">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnP-Rd-Rai">
                                 <rect key="frame" x="590" y="20" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Set time">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -43,10 +42,12 @@
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GnP-Rd-Rai" secondAttribute="trailing" constant="20" id="C1y-EU-rXg"/>
                             <constraint firstItem="1ER-jg-5O2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Fep-3m-LsX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1ER-jg-5O2" secondAttribute="bottom" constant="20" id="IPQ-O3-Gb6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1ER-jg-5O2" secondAttribute="trailing" constant="20" id="XG8-fT-O6i"/>
                             <constraint firstItem="1ER-jg-5O2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Zin-w0-Py4"/>
+                            <constraint firstItem="GnP-Rd-Rai" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="d2J-jh-hkA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
