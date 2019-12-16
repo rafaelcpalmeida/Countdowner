@@ -117,8 +117,6 @@ class ViewController: UIViewController {
     }
 
     func resetTimer() {
-        self.handleTimer()
-
         self.setDefaultCounterValue()
 
         guard let countdownerDetails = self.countdowner?.defaultState(counter: counter) else { fatalError() }
